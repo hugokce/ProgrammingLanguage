@@ -21,3 +21,24 @@ ALT+SHIFT+M dersek method üretmek için isim sorar sonra ekler
 ALT+SHIFT+R ile değişkenin tüm adlarını değiştirebiliriz
 ALT+SHIFT+I ile seçilen değişken çarpımından variable oluşturabiliriz
 CTRL+SHIFT+F ile kodları formatlayabiliriz
+
+
+https://www.udemy.com/course/luv2code-eclipse-ide-for-beginners/learn/lecture/3518566?start=0#overview
+1 saat 
+www.luv2code.com
+Navigate OpenType ile class açılabilir
+rightclick quick outline dersek içinde bulunduğumuz koddaki classları görürüz
+Search--> Search ile arama yapılabilir
+rightclick-->referances-->workspace dersek nerelerden çağırıldığını görebiliriz
+rightclick-->source--> generate getter and setters olabilir
+rightclick-->source--> generate constructor using fields
+main CTRL+SPACE ile method oluşur
+sysout, foreach CTRL+SPACE gibi
+rightclick--refactor --> extract local variable ile oluşmayan değişkeni oluştururuz
+rightclick--refactor -->extract method dersek seçili kodları methoda çevirir
+kodu test etmek için junit.org kullanıyor
+
+preferences kısmından ayarları yapabiliriz
+preferences java code style code templatesten içine yazılacak örnek kodu verebiliriz. Bu comment yazınca otomatik ekler
+
+
