@@ -1,3 +1,23 @@
 https://www.udemy.com/course/eclipse-java-tutorial-for-beginners/learn/lecture/4358056#overview
 
 1,5 saat eğitim
+
+https://www.youtube.com/watch?v=DLPjCZ5n_SM
+
+CTRL+SPACE kod devamını gösterir auto suggestion deniyor buna
+CTRL+1 ile yine class mı yapacağız vs sorar
+for oluşturduk diyelim numbers dizisini tanıtmadık CTRL+1 basarsak bize önerir ve diziyi üstte tanımlar
+CTRL+SHIFT+L  tüm shortcutları gösterir
+ALT+UP OR DOWN   kodlar arasında gezmeyi sağlar taşımayı sağlar
+CTRL+SHIFT+R arama yapar  FJC dersek FirstJavaClassı da bulur
+CTRL+SHIFT+T  dersek arama yaparken tüm classları gösterir
+CTRL+/ commente çevirir seçili satırları. uncomment de yapar
+CTRL+D satırı siler
+CTRL+L dersek açılan pencerede gideecğimiz satırı yazarız
+CTRL+Q ile son değişiklik yapılan yere gider
+CTRL+O classtaki tüm methodları gösterir
+ALT+SHIFT+X,J dersek seçili classı çalıştırır
+ALT+SHIFT+M dersek method üretmek için isim sorar sonra ekler
+ALT+SHIFT+R ile değişkenin tüm adlarını değiştirebiliriz
+ALT+SHIFT+I ile seçilen değişken çarpımından variable oluşturabiliriz
+CTRL+SHIFT+F ile kodları formatlayabiliriz
