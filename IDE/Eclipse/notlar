@@ -58,7 +58,7 @@ sdk install java deyince 8u144-zulu iniyor
 sdk install java 8u131-zulu da diyebiliriz
 sdk list java dersek javaları listeler 
 
-
+IntellijIDEA project açarken sdk sorarsa sdkman içine gidip candidate javaya bakabilir ve 8u144 yüklemiştik onu seçebiliriz.
 
 
 
