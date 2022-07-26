@@ -99,6 +99,58 @@ else {
 a++;
 }  }  }  bu döngü bitmez
 
+Static kelimesi için bir örnek
+main içine de şunu yazalım
+int c = (new Test()).sum(a:3,b:4);
+System.out.println(c);
+
+String cc=(new Test()).concat(a:"apple",b:"pie");
+System.out.println(cc);
+
+char a=get("apple");
+System.out.println(a);  bu da l verir 3. karakter l dir apple için
+
+main dışına bu methodu ekleyelim
+public int sum(int a,int b){
+return a+b;   3+4 7 verir
+}
+bunu da ekleyelim
+private String concat(String a,String b){
+return a+b;  applepie verir
+}
+
+private static char get(String str){
+return str.charAt(3);
+}
+
+Şu şekilde de yazabiliriz method isimleri aynı olabilir a+b için
+
+main içine de şunu yazalım
+int c = (new Test()).sum(a:3,b:4);
+System.out.println(c);
+
+String cc=(new Test()).sum(a:"apple",b:"pie");
+System.out.println(cc);
+
+char a=get("apple");
+System.out.println(a);  bu da l verir 3. karakter l dir apple için
+
+main dışına bu methodu ekleyelim
+public int sum(int a,int b){
+return a+b;   3+4 7 verir
+}
+bunu da ekleyelim
+private String sum(String a,String b){
+return a+b;  applepie verir
+}
+
+private static char get(String str){
+return str.charAt(3);
+}
+
+method isimleri concat yerine ikisinde de sum olacak şekilde değiştirdik
+
+
 
 
 
