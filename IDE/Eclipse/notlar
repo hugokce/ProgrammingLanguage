@@ -60,5 +60,12 @@ sdk list java dersek javaları listeler
 
 IntellijIDEA project açarken sdk sorarsa sdkman içine gidip candidate javaya bakabilir ve 8u144 yüklemiştik onu seçebiliriz.
 
-
+JVM Languages
+http://groovy-lang.org/
+https://kotlinlang.org/
+https://www.scala-lang.org/
+https://clojure.org/
+https://ceylon-lang.org/
+https://www.jruby.org/
+https://www.jython.org/
 
