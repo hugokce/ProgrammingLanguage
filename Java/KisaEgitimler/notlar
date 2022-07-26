@@ -79,8 +79,25 @@ sum+=num
 }
 System.out.println(sum);
 
+break ve continueya bakalım
+int a=52;
+while(true){
+if (a%51 == a%13) {
+System.out.println(a);
+break;
+else {
+a++;
+}  }  }
 
 
+int a=52;
+while(true){
+if (a%51 == a%13) {
+System.out.println(a);
+continue;
+else {
+a++;
+}  }  }  bu döngü bitmez
 
 
 
