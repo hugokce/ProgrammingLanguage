@@ -21,3 +21,40 @@ String dialogue = "He said,\"hello\""; denilirs
 tab atmak için araya \n kullanılır
 
 name.substring(3,9)  3ten başlar 9a kadar gider 9 hariç
+
+Arrayler
+int[] numsA = {1,2,3,4,5}; bunu print edersek locationidsini verir
+ancak Arrays.toString(numsA) dersek [1,2,3,4,5] olarak dönecektir
+int[] numsB = new int[4]; bunu print edersek [4, -123,24,0] verir
+int[4] dediğimiz için 4 eleman oluşması gerekir dördüncüyü 0 olarak verdi
+
+int[][] board = new int[2][2]; 
+board[0][0]=1;
+board[0][1]=0;
+board[1][0]=1;
+board[1][1]=10
+1 0
+1 0 olarak görünür
+
+
+ArrayList<> objesi
+List<Integer> list = new ArrayList<Integer>();
+list.add(3);
+list.add(99);
+list.add(-1);
+list print dediğimizde [3,99,-1] verir
+list.remove(index:2) 2 deyince index kendisi ekler
+list.remove(new Integer(value:-1)); dersek -1 olan değeri siler
+sadece [3,99] kalır
+
+Indexer x = list.get(1) dersek bunu print edersek 99u verecektir
+
+list.size() dersek 2 verecektir
+
+
+
+
+
+
+
+
