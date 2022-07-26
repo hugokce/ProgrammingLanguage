@@ -173,7 +173,31 @@ return name + " has roared";
 }  }
 
 
+Reference Types:
+main içinde yazalım
+int y =35;
+String name = "Dan";
+change(y);
+System.out.println(y);
 
+main dışında
+private static void change(int x){
+x=89;
+}
+sonuçta 89 değeri 35e döner
+
+Az önce oluşturduğumuz Tiger için de ekleme yapsak main içine
+Tiger dan = new Tiger(name:"dan",weight:250);
+change(dan);
+System.out.println(dan.name);
+
+main dışına ekleyelim
+private static void change(Tiger t) {
+t.name="Oliver";
+}
+
+
+ 
 
 
 
