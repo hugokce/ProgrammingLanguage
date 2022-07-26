@@ -149,11 +149,28 @@ return str.charAt(3);
 }
 
 method isimleri concat yerine ikisinde de sum olacak şekilde değiştirdik
-
 public static boolean imOK=true;  bu da static variabledır
 
+Classes and Instance Variables
+main içine yazalım kodlarımızı
 
+Tiger dan = new Tiger(name:"daniel",weight:500);
+dan.roar()
+System.out.println(dan.roar());
 
+main dışında class oluşturalım şimdi
+
+class Tiger {
+private int weight; // instance var
+private String name;
+
+public Tiger(String name;int weight) { //constructor
+this.name=name;
+this.weight=weight;
+}
+public String roar() {  //method
+return name + " has roared";
+}  }
 
 
 
