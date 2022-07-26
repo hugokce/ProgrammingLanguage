@@ -51,7 +51,20 @@ Indexer x = list.get(1) dersek bunu print edersek 99u verecektir
 
 list.size() dersek 2 verecektir
 
+Döngüler for - while
 
+for (int i=0;      i<5;       i++){
+     initial;condition; incrementer
+     System.out.println(i);
+}
+
+
+int k=0,sum=0;
+while (k<10) {
+sum+=k;
+k++;
+}
+System.out.println(sum);
 
 
 
