@@ -150,6 +150,7 @@ return str.charAt(3);
 
 method isimleri concat yerine ikisinde de sum olacak şekilde değiştirdik
 
+public static boolean imOK=true;  bu da static variabledır
 
 
 
