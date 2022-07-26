@@ -1,1 +1,23 @@
+https://www.udemy.com/course/an-introduction-to-java-programming/learn/lecture/12336288?start=0#overview
+1,5 saat
 
+String name="Oliver"
+name. dersek birçok method karşımıza gelir
+name.charAt(5) desek r harfini verir Oliverın 5.karakteri. index 0dan başladığı için bu şekilde
+String upper = name.toUpperCase();
+System.out.println(upper);  ile hepsini büyük harfe çevirir
+
+x=hello y=hello
+x.equals(y)  true verir
+
+diğer metodlara bakalım
+name.length()
+String a="leo\npard" dersek
+bunu print edince leo bir üst satırda pard alt satırda olur
+
+iki kere çift tırnak kullanılması gerekirse
+String dialogue = "He said,\"hello\""; denilirs
+
+tab atmak için araya \n kullanılır
+
+name.substring(3,9)  3ten başlar 9a kadar gider 9 hariç
