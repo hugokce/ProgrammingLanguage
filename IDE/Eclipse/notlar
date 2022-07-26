@@ -49,4 +49,16 @@ https://adoptopenjdk.net/ bu ürün ücretsiz
 JAVA_HOME=C:/ProgramFiles/Java/jdk-14
 Path içine de %JAVA_HOME%/bin deriz
 
+https://sdkman.io/  software development kit manager
+https://github.com/sdkman/sdkman-cli
+sdkman ile çalışalım
+sdk install java
+sdk list java dersek versiyonları görebiliriz
+sdk install java deyince 8u144-zulu iniyor 
+sdk install java 8u131-zulu da diyebiliriz
+sdk list java dersek javaları listeler 
+
+
+
+
 
