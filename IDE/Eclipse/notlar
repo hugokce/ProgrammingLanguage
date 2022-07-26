@@ -46,3 +46,7 @@ https://www.udemy.com/course/java-development-environment/learn/lecture/18948288
 3,5 saat eğitim
 oracledaki jdk yerine adoptopenjdk de kurulabilir
 https://adoptopenjdk.net/ bu ürün ücretsiz
+JAVA_HOME=C:/ProgramFiles/Java/jdk-14
+Path içine de %JAVA_HOME%/bin deriz
+
+
