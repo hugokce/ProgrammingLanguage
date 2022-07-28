@@ -295,6 +295,168 @@ assert,const,goto,package,import,instanceof,new,super,this
 
 50 keyword
 
+https://www.udemy.com/course/2-saatte-java-temellerine-hakim-olun/learn/lecture/23767866?start=0#overview
+2 saat
+değişkenler bellek içinde ayırdığımız alanlardır
+ismiyle daha sonra onları çağırırız
+long intten fazla sayi değeri tutar
+double floattan daha fazla değer tutar
+char 1 karakter tutar daha fazla karakter tutmak için
+String tipinde olması gerek
+
+Dışarıdan Veri almak
+Scanner input = new Scanner(System.in);
+fix import ile pakete ekleriz import Scanner der
+sout(Lütfen tam sayı giriniz)
+int sayi1=input.nextInt();
+sout(sayi1);
+bizden sayi1 istiyor
+int sayi2=input.nextInt();
+int toplam = sayi1+sayi2;
+sout(toplam);
+sout("Toplam: "+(sayi1+sayi2));
+
+if blokları:
+int sayi1=30;
+int sayi2=20;
+
+if(sayi1>sayi2){
+sout("sayi1 büyüktür");
+} else if (sayi1==sayi2){
+sout("sayilar eşittir");
+} else {
+sout(sayi2 buyuktur);
+}
+
+Switch - Case Blokları:
+Scanner input = new Scanner(System.in);
+int sayi1=input.nextInt();
+int sayi2=input.nextInt();
+İşlem tipini giriniz
+byte islem = input.nextByte();
+switch(islem) {
+case 1 :
+sout(sayi1+sayi2);
+break;
+case 2 :
+sout(sayi1-sayi2);
+break;
+case 3 :
+sout(sayi1*sayi2);
+break;
+case 4 :
+sout(sayi1/sayi2);
+break;
+default:
+sout(hatalı bir sayı girdiniz)
+break;
+}
+
+Döngüler
+For döngüsü:
+bir işlemi tekrar tekrar yapmak istersek,sayılarda dolaşmak istersek
+kullanırız
+for(int i=0;i<10;i++)   sayac=sayac+1 de yazilabilir
+//i sayac değişkenidir
+{
+sout("Ekrana yazdır")  //10 defa ekrana yazdırır
+print(i) //dersek sayaci yazdırırız
+//ikiye bölünenleri bulmak istersek
+// o zaman döngü içine if bloğu yazmamız gerekiyor
+if(i%2==0){
+sout(i);
+} }
+2,4,6,8,10 yazdırdı
+
+While döngüsü
+int sayac=1;
+while (sayac<=10) {
+sout(sayac);
+sayac++;
+}
+
+CTRL+R R 2 kere R dersek tüm sayac değişkenlerini seçer
+sonra bunları i ye çeviririz
+While(true) örneği yapalım
+
+Scanner input = new Scanner(System.in);
+int sayi;
+while(true){
+System.out.print(lütfen sayi giriniz);
+sayi=input.nextInt();
+if(sayi==0){
+break};
+}
+0 girene kadar sormaya devam eder
+
+Do-While döngüsü:
+önce 1 kere çalıştırır sonra koşulun sağlanmasını kontrol eder
+Scanner input = new Scanner(System.in);
+int sayi;
+do {
+sout(lütfen sayi giriniz);
+sayi = input.nextInt();
+} while(sayi!=0);
+
+Dizi Kavramı:
+matematikteki kümeler aklımıza gelebilir
+aynı tipteki elemanları gruplarız dizilerde
+//int sayi1=20;
+//int sayi2=40; yerine 
+//sayilar isimli dizi olsun
+int[] sayilar = new int[5];  kaç eleman olsun istersek 
+sayilar[0]=20;
+sayilar[1]=40;
+sayilar[2]=70;
+sayilar[3]=50;
+sayilar[4]=60;
+sout(sayilar[4]);  60 yazdırması lazım
+şu şekilde de tanımlayabilir
+int[] sayilar = {20,40,50,70,60};
+sout(sayilar[4]);  60 verecektir
+stringlerden dizi oluşturalım
+String[] ogrenciler {"Bahadır","Ali","Veli","Omer"};
+//sout(ogrenciler[1]);
+for(int i =0;i<4;i++){
+sout(ogrenciler[i]);
+}
+bu şekilde öğrencileri yazdırırız
+
+Metot Kavramı:
+sürekli yaptımız işleri metota çevirip tekrar tekrar kullanırız
+public static void kendiniTanit(){
+sout(adin)
+sout(soyadin)
+}
+ kendiniTanit(); dersek main içinde veri gelir
+
+Parametreli Metotlar:
+iki sayının ortalamasını veren metot
+public static void ortalamaAl(int sayi1,int sayi2){
+int toplam = sayi1+sayi2;
+int ortalama = toplam/2;
+sout(ortalama);
+}
+
+main içinde ortalamaAl(); dedik parametreleri vermemiz gerek
+ortalamaAl(45,78);
+
+int sayi1=60;
+int sayi2=100;
+ortalamaAl(sayi1,sayi2);
+
+Geriye Değer Döndüren Metotlar:
+iki sayı girelim ortalamasını versin
+public static double ortalamaHesapla(int sayi1,int sayi2){
+//değer döndüreceği için public static double dedik
+int toplam=sayi1+sayi2;
+int ortalama = toplam/2;
+return ortalama;
+//2 parametre istedik
+}
+
+ortalamaHesapla(45,70); bu değer vermez o yüzden 
+sout(ortalamaHesapla(45,70)); dememiz gerek
 
 
 
