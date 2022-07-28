@@ -196,6 +196,7 @@ private static void change(Tiger t) {
 t.name="Oliver";
 }
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 https://www.udemy.com/course/learn-how-to-use-all-50-java-keywords/learn/lecture/1916674?start=0#overview
 1 saat
@@ -294,6 +295,8 @@ Miscellaneous 9
 assert,const,goto,package,import,instanceof,new,super,this
 
 50 keyword
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 https://www.udemy.com/course/2-saatte-java-temellerine-hakim-olun/learn/lecture/23767866?start=0#overview
 2 saat
@@ -458,17 +461,81 @@ return ortalama;
 ortalamaHesapla(45,70); bu değer vermez o yüzden 
 sout(ortalamaHesapla(45,70)); dememiz gerek
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.udemy.com/course/array-and-vectors-in-java/learn/lecture/25395380?start=0#overview
+1 saat
+Array
+int a[10];
+datatype variablename[] = new datatype[size]
+ya da 
+datatype variablename[];
+ variablename= new datatype[size];
+int val[] = new int[5];
+datatype arrayname[] = {val1,val2,val3...,valn};
+int arr[]={1,2,3,4,5};
 
+datatype arrayname[];
+arrayname[index]=value;
+int arr[];
+arr[0]=10;
 
+int arr[] = {8,6,2,4,9,3,1};
+int size=arr.length;
 
+Create Two dimensional array
 
+first dimension row, second dimension column
+datatype arrayname[][] = new datatype[size][size];
+int arr[][]=new int[3][3];
 
+int table[][] = new int[3][];
+table[0]=new int[5];
+table[1]=new int[2];
+table[2]=new int[3];
 
+Multidimensional Array
+datatype arrayname[][][] = new datatype[size][size][size];
+int a[][][] = new int[3][3][3];
 
+int arr[] = {100,90,80,70,60,50};
+for (int i=0;i<arr.length;i++){
+sout(arr[i]);
+}
 
+Kullanıcıdan değer alıp arraya yazalım
+Scanner s1 = new Scanner(System.in);
+int arr[] = new int[5];
+sout(eleman girin);
+for (int i=0;i<arr.length;i++){
+arr[i]=s1.nextInt();
+sout(değerler şu şekilde);
+for(int i =0;i<arr.length;i++)
+sout(arr[i]);
+}
+5 eleman eklenince print kısmından print ediyor
 
+Sorting Dimensional Array
+Scanner s1 = new Scanner(System.in);
+int arr[] = new int[10];
+sout(eleman girin);
+for (int i=0;i<arr.length;i++){
+arr[i]=s1.nextInt();
+sout(değerler şu şekilde);
+for(int i =0;i<arr.length;i++)
+{
+for(int j =i+1;j<arr.length;j++)
+{
+if(arr[i]>arr[j])   < yaparsak küçükten büyüğe sıralar
+{
+int temp=arr[i];
+arr[i]=arr[j];
+arr[j]=temp;
+}  }  } }
+for(int i=0;arr.length;i++)
+sout(arr[i]);
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -554,4 +621,12 @@ sout(ortalamaHesapla(45,70)); dememiz gerek
 
 
 
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
