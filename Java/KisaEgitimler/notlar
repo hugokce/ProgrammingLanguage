@@ -286,7 +286,8 @@ if (fileInput!=null){
 } throw new UnsupportedOperationExecution("Not Supported");
 }
 
-
+Class Declaration and modifiers: 17
+abstract,class,extends,final,implements,interface,native,private,protected,public,static,strictfp,synchronized,transient,throws,void,volatile
 
 
 
