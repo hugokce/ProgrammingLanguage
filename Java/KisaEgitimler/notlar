@@ -197,7 +197,172 @@ t.name="Oliver";
 }
 
 
- 
+https://www.udemy.com/course/learn-how-to-use-all-50-java-keywords/learn/lecture/1916674?start=0#overview
+1 saat
+https://docs.oracle.com/javase/tutorial/
+
+datatypes 9 --> boolean, byte,char, double, enum, float, int,long,short
+byte -128 127 arası olabilir
+char 1 karakter alabilir  'A' gibi. "A" olmaz
+short -32768 ile 32767 arası olabilir
+float 3.4444f
+double 3.4444
+
+enumeration:
+public class EnumExample{
+enum Menu {YES,NO,MAYBE}
+public EnumExample(){
+Menu options = Menu.NO;
+options = Menu.YES;
+}
+psvm{
+int noOrdinal = Menu.NO.ordinal();
+Menu [] items = Menu.values();
+Menu item = Menu.valueOf("YES");
+}  }
+ordinal değerlere sahiptir enum sıralı yani
+
+
+flow control 15 --> return, if else,for continue, while do, switch case break default, try catch finally throw
+listeden okuma için for
+String[] countries={"US","Canada","Mexico"};
+for (String country:countries){
+print(country)
+}
+
+while loop
+int count=10;
+while (count<100){
+print count;
+count+=10;
+}
+
+do-while
+do keywordu
+count=10;
+do {
+count+=10;
+print(count);
+} while (count<100)
+
+switch - case
+psvm{
+String month="Jan";
+switch(month){
+case "Jan":
+print("Jan");
+break
+case "Feb":
+print("Feb")
+break;
+default:
+print("Other")
+break;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
