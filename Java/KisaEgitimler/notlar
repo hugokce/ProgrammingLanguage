@@ -287,9 +287,13 @@ if (fileInput!=null){
 }
 
 Class Declaration and modifiers: 17
-abstract,class,extends,final,implements,interface,native,private,protected,public,static,strictfp,synchronized,transient,throws,void,volatile
+abstract,class,extends,final,implements,interface,native,private,protected,public,static,strictfp,synchronized,transient,throws,void,volatile,
+overloading,overriding
 
+Miscellaneous 9
+assert,const,goto,package,import,instanceof,new,super,this
 
+50 keyword
 
 
 
