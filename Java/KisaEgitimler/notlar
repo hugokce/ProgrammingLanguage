@@ -258,11 +258,33 @@ break;
 default:
 print("Other")
 break;
+} }
+
+
+exceptions:
+psvm{
+FileReader fileInput=null;
+try{
+fileInput=new FileReader("Untitled.txt");
+processFile(fileInput);
+} catch (FileNotFoundException ex) {
+print(file not found);
+} catch (IOException ex){
+print (IO Exception)
+} finally {
+fileInput.close();
+print(cleanup done)
+} }
+
+psvm {
+try (FileReader fileInput=new FileREader("untitled.txt")){
+processFile(fileInput);
 }
 }
-
-
-
+psv processFile(FileREader fileInput){
+if (fileInput!=null){
+} throw new UnsupportedOperationExecution("Not Supported");
+}
 
 
 
