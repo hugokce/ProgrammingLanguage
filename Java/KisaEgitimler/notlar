@@ -537,6 +537,334 @@ sout(arr[i]);
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.udemy.com/course/java-pc1/learn/lecture/4398138?start=0#overview
+1,5 saat
+(double)a ile type cast yapılır
+
+psvm{
+int n = 1; long ln=n;
+sout(ln);
+1 döner
+char c = 'c';ln=c;
+sout(ln);
+99 döner
+char c1=(char)ln;
+sout(c1);
+c döner
+float f=3.2f;n=(int)f;
+sout(n);
+3 döner
+double d=(int) f;
+double d1=(char)f;
+sout(d+","+d1+","+f);
+3.0,3.0,3.2 döner
+double d2=f;
+sout(d2);
+3.200000047683716 döner
+}
+
+diğer challenge;
+pvsm{
+int n=10;float f=2.5f;boolean b=false;
+float f1=f/n;sout(f1);  0.25 döner
+float f3=n/f;sout(f3); 4.0 döner
+float f4=n/100;sout(f4);  0.0 döner
+int n1=n/100;sout(n1) 0 döner
+}
+
+diğer challenge;
+psvm{
+int x=2,y=5;boolean b;
+int n=x-y+y/x*(x*y++);
+sout(n)   17 döner
+double n1=--X -(y+y/x)*(--x*y);
+sout(n1);  1.0 döner
+b=!(n>x&&n1<y)?true:false;
+sout(b);  false döner
+}
+
+Bölüm3 Selections if -else switch
+if, nested if, if else, switch case
+psvm {
+String gs="";
+char grade='A';
+switch(grade){
+case 'A':gs="Excellent";break;
+case 'B':gs="Very Good";break;
+case 'C':gs="Good";break;
+case 'D':gs="Average";break;
+case 'E':
+case 'F':gs="Low performance";break;
+default :gs="Invalid grade character;
+}
+sout(gs)
+}
+
+challenge büyük küçük harf değişimi yapar
+package caseswap;
+import java.util.*;
+psvm{
+Scanner sc=new Scanner(System.in);
+Sout("Enter character");
+char c=sc.next().trim().charAt(0);
+if((int)c>=65&&(int)c<=90
+sout((char)((int)c+32));
+else if ((int)c>=97&&(int)c<=122)
+sout((char)((int)c-32));
+else 
+sout(c);
+}
+
+challenge2
+package betterif;
+public class BetterIf{
+psvm{
+int BMI=20;
+boolean diabetes=true;heartCheckEssential=false;
+if(BMI>=25){
+if(diabetes){
+heartCheckEssential=true;
+} else {
+heartCheckEssential=false;
+} } 
+else if (BMI<25) heartChechEssential=false;
+sout(Heartcheck needed);
+sout(heartCheckEssential)
+} }
+
+
+ternary operator
+challenge1
+psvm{
+int person=5;
+sout((person>1)? 
+	"They are":
+	"He is")+ " going.");
+}
+
+challenge2
+psvm{
+double salary=600000;tax=0;
+double slab1=250000;slab2=500000;
+tax=(salary>slab1)?
+	(salary>slab2)?(0.10*slab1+0.20*(salary-slab2))
+	:0.10*(salary-slab1)
+	:0;
+sout("Tax on your salary ":salary+" would be "+tax);
+}
+
+Switch case
+Challenge1
+psvm{
+int month=2;int year=2000;int days=0;
+switch(month){
+case 1:case 3:case 5:case 7:case 8:case 10:case 12:
+days=31;break
+case 4:case 6:case 9:case 11:
+days=30;break;
+case 2:
+if(((year%4==0)&&!(year%100==0)) ||(year%400==0))
+days=29;
+else days=28;break;
+default:
+sout("Invalid mount");
+}
+sout("Days in month = " + days);
+}
+
+challenge2
+psvm{
+int wn1,wn2,res=0,num1=43,num2=4;
+wn1=num1;wn2=num2;
+for(int i =1;i<=4;i++)
+switch(i) {
+case 1 : sout(num1+"+"+num2+" =");
+case 2: if(i==1) {sout(wn1+wn2);break}
+sout(num1+"-"+wn2+" ="+(wn1-wn2));break;
+case 3: for(int j=0;j<wn2;j++)res+=wn1;
+sout(num1+"*"+num2+" = "+res);break;
+case 4: res=0;
+while(wn1>0){
+wn1-=wn2;res++;
+if(wn1<wn2)break;
+}
+sout(num1+"/"+num2+" = "+res);break;
+} }
+
+Bölüm4 Iteration
+for(initialize counter;check limit;modify counter)
+while(check condition)
+foreach --> for (variable : array)
+
+psvm{
+int num=15;
+sout("Divisors of number are");
+for(int i=1;i<=num/2;i++)
+{
+if(num%i==0) sout(i);
+} }
+
+psvm{
+int num=11;mul=1;
+while(mul<=10)
+{sout(num+"x"+mul+"\t= "+num*mul++);}
+}
+
+foreach loop
+psvm{
+String name="ABCDE";
+char[] nm=name.toCharArray();
+char res=0;
+for(char c:nm) res+=c;
+sout((char)(res/nm.length));
+}
+
+do-while 
+psvm{
+Scanner sc = new Scanner(System.in);
+double ip=0,max=0;
+do{
+sout("enter positive number");
+ip=sc.nextDouble();
+if(ip>max) max=ip;
+} while(ip>0);
+sout("maximum value entered:"+max);
+}
+
+challenge1
+psvm{
+int sumodd=0,sumeven=0;
+for(int i=1;i<=10;i++)
+{
+if(i%2==0) sumodd+=i;
+else sumeven+=i;
+}
+sout("Sum odd"+sumodd+"\n"+"Sum Even="+sumeven);
+}
+
+challenge2
+psvm{
+char A='A';
+for(int i=1;i<=3;i++)  satırın tekrarı
+{
+for(int j=1;j<=i;j++)  her satırın yazılması
+{
+sout(A+" "+(int) A+" ");
+A++;
+}
+sout();
+} }
+
+challenge 3
+psvm{
+int fibo[] = new int[10];
+fibo[0]=0;fibo[1]=1;
+for(int i=2;i<10;i++)
+fibo[i]=fibo[i-2]+fibo[i-1];
+for(int i:fibo) sout(i+" ");
+}
+
+challenge4
+psvm{
+String name[]={"Raj","John","Maria"};
+int[][] score={{65,79,82},{69,85,55},{55,71,75}};
+int n=0,sum=0;
+for(int i[]:score){
+sout("Student "+(n+1)+":"+name[n]);
+for(int j:i){
+sout(j+" ");
+sum+=j;
+}
+sout(sum/3+"%");
+n++;
+}
+}
+
+
+challenge5 while
+psvm{
+int month=1;
+Scanner sc=new Scanner(System.in);
+sout("Enter month of joining (1-12):");
+month=sc.nextInt();
+while(month<1 || month>12){
+sout("error input re-do please");
+month=sc.nextInt();}
+sout("month entered correctly")
+}
+
+challenge 6
+psvm{
+String message="Gold delivered";
+int key=232,i=0,dig=0,wk=0;
+while(i<message.length()){
+wk=key;
+for(int j=0;j<3;j++){
+dig=wk%10;
+if(i==message.length()) break;
+sout((char)(message.charAt(i++)+dig));
+wk=wk/10;
+}
+}
+sout();
+}
+
+challenge7 do-while
+import java.util.*;
+import java.text.DecimalFormat;
+psvm{
+double c;char ans;
+DecimalFormat df= new DecimalFormat("#.00");
+Scanner sc = new Scanner(System.in);
+do{
+sout("enter temperature in degree centigrade:");
+c=sc.NextDouble();
+sout(c+" degree centigrade =");
+sout(df.format(c*1.8+32)+" Degree Fahrenheit);
+sout("Try more reading (y/n)?");
+ans=sc.next().charAt(0);
+}
+while(ans=='y'||ans='Y');
+}
+
+challenge 8
+import java.util.*;
+psvm{
+char choice;
+Scanner sc=new Scanner(System.in);
+do{
+sout("1.Say Hello");
+sout("2.Say Namaste");
+sout("3.Say Bonjour");
+sout("4.Exit Silently");
+sout("Enter choice (1/2/3/4):");
+choice=sc.next().charAt(0);
+if(choice=='1') {sout("Hello World");break;}
+if(choice=='2') {sout("Namaste World");break;}
+if(choice=='3') {sout("Bonjour World");break;}
+} while(choice!=4);
+}
+
+sonunda pdf var
+05-02+Reference+Links+Sheet.pdf indirildi
+Java Documentation 
+https://docs.oracle.com/en/java/ 
+Java Language and Virtual Machine Specifications 
+http://docs.oracle.com/javase/specs/ 
+Java Community Page 
+https://www.jcp.org/en/home/index 
+Sunmitra Main Site 
+http://www.sunmitra.com 
+Sunmitra Education Facebook Group 
+http://www.facebook.com/sunmitraedu 
+A programming challenge site online 
+https://www.hackerearth.com/practice-challenge/ 
+This one is good simple online resource for java learning 
+http://www.tutorialspoint.com/java/ 
+This one may be liked by some people. 
+http://javabeginnerstutorial.com/core-java/
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
