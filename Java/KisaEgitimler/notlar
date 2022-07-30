@@ -866,9 +866,385 @@ http://javabeginnerstutorial.com/core-java/
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.udemy.com/course/java-ile-nesne-tabanl-programlama-temelleri/learn/lecture/21116514?start=0#overview
+1,5 saat
+
+Araba a1 = new Araba(); dersek
+a1 Araba sınıfının bütün özelliklerine sahiptir
+Araba a2 = new Araba();
+
+Araba sınıfına int x=10 dersek 
+artık a1 ve a2nin bu x ile ilişkisi vardır
+a1. dersek x gelir
+bir sınıftan birden fazla nesne oluşturabiliriz a1 a2 gibi.
+a1 ve a2 nesnelerdir
+Araba() sınıftır
+aynı paket içinde yer alan binekaractan nesne oluşturalım
+binekArac ba1=new binekArac();
+psvm dışındaki satırda class oluştursak
+class Otomobil {
+int c = 14;
+} dersek bunu da nesneye atayalım
+Otomobil o1= new Otomobil();
+sout(o1.c);
+14 olarak verecektir
+üzerinde çalıştığımız dosyanın ismi public class olur
+diğer oluşturduğumuz classlar için public yazılmaz yoksa karışır 
+
+Class niteliği oluşturma ve niteliğe erişme
+bir arabanın markası modeli vs olur
+public class Araba{
+String marka;
+String model;
+String renk;
+Int beygirgucu;
+
+psvm{}
+Araba a1=new Araba();
+a1.marka="Honda";   şimdi o niteliklere değer atayalım
+a1.model="Civic";
+a1.renk="beyaz";
+a1.beygirgucu=110;
+sout(a1.marka);  honda verir
+Araba a2 = new Araba();
+sout(a2.marka); null verir çünkü a2 için değer atamadık
+ön tanımlı vermezsek null gelir Volvo dersek Volvo gelir
+}
+
+biz eğer final String marka="Volvo"; dersek ve a1 = new Araba() sonrası
+nesneye atama yapmak istersek örneğin Honda dersek 
+hata alırız çünkü final bizi engeller.
+
+Biz bir nesneye atamadan classı çağırmak istersek hata alırız
+sout(Araba.marka) dersek hata verir
+
+Static Non-Static Nitelikler:
+FAbrika projesinde calisanclassı oluşturduk
+bu classın nitelikleri de
+isim, soyisim, baslamaYili, bolum,maas
+String isim;
+String soyisim;
+String baslamaYili;
+String bolum;
+double maas;   bu niteliklerin başında static olmadığı için
+bu nitelikler non-statictir. Bu sebeple o sınıftaki niteliklere
+o sınıftan bir örnek oluşturarak erişebiliriz
+yani Calisan c1 = new Calisan(); gibi örnek oluşturmak lazım
+çünkü bu nitelikler örneği ilgilendiren nitelikler değildir
+sınıfın genelini ilgilendiren nitelikler değildir
+psvm{
+Calisan c1 = new Calisan();
+c1.baslamaYili="2011";
+c1.bolum="Yazılım";
+c1.isim="Isa";
+c1.soyisim="Acar";
+c1.maas=3000;
+}
+Yani hangi örneğin ismini soyismini verecek bunlar örneği 
+ilgilendiren nitelikler olduğu için non-statictir
+Calisansayisi ekleyelim
+calisan sayisi calisan sınıfının bir niteliğidir
+calisan sınıfını niteler bireysel bazla örneği nitelemez
+int calisanSayisi = 250; desek
+bireysel olmadığını o sınıfı ilgilendirdiğini belirtmek için
+başına static kelimesi ekleriz 
+static int calisanSayisi = 250; bu classın niteliği oldu
+bunun için örnek oluşturmaya gerek kalmaz
+artık sout(Calisan.) dediğimizde bize calisanSayisi kendiliğinden
+gelir örnek oluşturmaya gerek kalmaz
+
+Static Non-Static Metotlar:
+şimdi main dışında metot oluşturalım
+public void bilgileriGoster() {
+sout("Bilgiler: "+isim+"\n"+soyisim+"\n+baslamaYili+"\n"+bolum+"\n"+maas);
+}
+şimdi bilgileriGoster adinda örnek metodu oluşturduk
+şimdi main içinde 
+c1. dediğimizde bilgileriGoster() metodu da gelir
+çünkü Calisan class içinde tanıttık ve onu da kapsadı
+bu bilgileriGoster() bir örnek metodudur
+bu metodu çalıştırabilmek için sınıf örneğini sınıf nesnesini
+yani Calisan c1=new Calisan() şeklinde oluşturmak gerekir
+
+şimdi de sınıf metodu oluşturalım
+bir metodun başına static eklediğimiz zaman bu metot sınıf metodu
+olacaktır. sınıfı ilgilendiren bir metotsa o metodun başına
+static demek gerekir. static yazdığımız bir metotdan 
+örnek oluşturmak zorunda değiliz böylece.
+ismiyle de o metodu çağırabiliriz
+şimdi çalışan sayısını gösteren bir sınıf metotu oluşturalım
+static void calisanSayisi() {
+sout("Calışan sayısı: "+calisanSayisi);
+} yazdık
+şimdi main içine gidelim
+Calisan. dediğimiz zaman calisanSayisi metodu da 
+calisanSayisi niteliği de geldi
+bu static ile oluşturduğuımuz metot sınıf metodudur
+çünkü başında static bulunmaktadır sınıfı ilgilendirmektedir
+
+public void olan da non-static metottur public bir metotdur
+bir örnek metodudur bu bilgileriGoster metodunu çağırmak için
+mutlaka örnek oluşturmak gerekir calisan c1 = new calisan() şeklinde
+
+Constructor metotlar:
+bir sınıftan bir nesne oluştururken hangi kıstaslara göre 
+oluşturacağımızı belirleyebildiğimiz bir metotdur
+biz oluşturmasak da java oluşturur sınıfın adıyla aynı isme
+sahiptir Calisan() constructor metottur biz bunu oluşturmadık
+ama java oluşturmuş
+şimdi bir constructor metot oluşturalım
+public Calisan() {
+} boş parametresiz bir constructor oluşturduk main dışında.
+şimdi c1 ve c2 nesneleri oluşturalım bu constructor metottan
+main içinde
+Calisan c1=new Calisan();
+Calisan c2=new Calisan();
+c1.bolum="Personel";
+c2.bolum="Yazılım";
+
+şimdi içine parametre alan bir constructor metot yazalım
+Bu sayede c1.bolum="Yazılım" şeklinde yazmaktan kurtuluyoruz
+bir classta birden fazla constructor olabilir
+
+public Calisan(String isim,String soyisim, String baslamaYili,
+String bolum,double maas){
+this.isim=isim;      this bir anahtar kelimedir örneği temsil eder
+this.soyisim=soyisim;  
+this.baslamaYili=baslamaYili;
+this.bolum=bolum;
+this.maas=maas;
+} örneğin isim değişkeninin değeri constructor metot içinde
+yazmış olduğumuz isim parametresinin değeridir demektir bu
+this.isim=isim;
+örneğin soyisim değişkeninin değeri constructor metor içinde 
+yazmış olduğumuz soyisim parametresinin değeridir
+
+Constructor belirleyince Calisan c1=new CAlisan(); 
+bize hata fırlattı parametre istiyorum diyor. o yüzden this
+eklemesi ile devam edip constructor tanımlamasına
+devam ediyoruz
+Eğer String isim yerine String name demiş olsaydık
+{} içinde this kullanmamıza gerek kalmayacaktı
+isim=name; diyecektik
+nitelik=parametre 
+
+şimdi c2yi şöyle oluşturalım main içinde
+Calisan c2=new Calisan("Mehmet","A","2015","Yazılım",4000);
+şeklinde oluşturabiliriz artık tek tek c2.bolum=Yazılım
+gibi satır şeklinde yazmaya gerek yok
+sout(c2.bolum )dediğimizde Yazılım karşımıza gelir
+Yani constructor şunu sağlıyor bize
+sınıftan bir örnek oluşturma esnasında istediğimiz değerlerle
+bu örneği oluşturmamıza yarıyor
+Constructor metotlar sınıfın ismiyle aynı ismi taşımak zorundadır
+Aynı isimde sadece isim ve soyisim yer alan constructor da 
+oluşturabiliriz
+public Calisan(String isim,String soyisim){
+this.isim=isim;
+this.soyisim=soyisim;
+}
+Calisan c3=new Calisan("isa","acar");
+sout(c3.isim); isa döndürdü
+
+Erişim Sağlayıcılar:
+public ifadesi bir erişim sağlayıcıdır
+yine private ve protected da vardır.
+public demek diğer sınıflardan da erişilebilir olduğunu gösterir
+Şimdi bir class oluşturalım main dışında
+class Yonetici{
+String mezuniyet;
 
 
+}
 
+main içinde şunu yazalım
+Yonetici y1=new Yonetici();
+y1.mezuniyet="2020";
+sout(y1.mezuniyet);  erişebilmemizin sebebi 
+mezuniyetin public olmasıdır
+şimdi private yaparsak mezuniyeti
+private String mezuniyet; dersek
+hata alırız private access uyarısı verir
+protected String mezuniyet; dersek ulaşabiliriz
+protected ise aynı paket içinde erişim sağlanabileceğini gösterir
+
+bunu bir de metotlar için yapalım
+public void goster(){sout("Mezuniyet: "+mezuniyet);}
+şimdi main içinde y1. deyince goster metodu gelir karşımıza
+y1.goster() çalıştırınca mezuniyet yılı 2020 diye geldi
+private yaparsak hata alırız
+
+Encapsulation:
+Private verdiğim 
+private String marka;
+private int model;
+marka üzerine gelip Refactor deyip Encapsulation field
+diyoruz
+Create Getter ve Create Setter seçiyoruz
+bu getter ve setter metodları ortaya çıkıyor
+setMarka() ile değişkene değer atamak için bu ibare kullanılıyor
+değeri döndürmek için de GetMarkayı kullanıyoruz
+getMarka da zaten return yapıyor sadece
+şimdi az önce erişim sağlayamadığım classa gelelim
+oto1. deyince karşımıza getMarka, getModel, setMarka, setModel
+geldi onları kullanmamız lazım
+oto1.setMarka("Honda");
+oto1.setModel(2003);
+
+ekrana yazdırmak için de
+sout(oto1.getMarka())
+sout(oto1.getModel()) diyoruz
+
+kısaca encapsulation erişemediğimiz metot için
+getter setter kullanıp atama yapıyoruz ve ekrana yazdırıyoruz
+atama setter ile yazdırma getter ile
+setModel()  getModel()
+
+Miras Alma: Inheritance
+Önce boş bir mainli class oluşturduk
+ayrıca başka bir class daha oluşturalım
+Aynı paket içinde Vasıta isimli class daha oluşturduk
+ilk class içinde main dışında da oluşturabilirdik fark etmez
+public class Vasıta{
+String marka;
+int model;
+String renk;
+double fiyat;
+
+public void goster(){
+sout(marka+" "+model+" "+renk+" "+fiyat);
+}  }
+
+ilk classta vasıta nesnesi oluşturalım main içinde
+Vasıta v1=new Vasıta();
+v1.marka="Honda";
+Şimdi Vasıta nesneleri private yaparsak v1 patlar.
+public class Vasıta{
+private String marka;
+private int model;
+private String renk;
+private double fiyat;
+
+public void goster(){
+sout(marka+" "+model+" "+renk+" "+fiyat);
+}  }
+
+şimdi encapsulationdaki getter setter işlemini yapmamız lazım
+o yüzden sağ tıklayıp refactor deyip encapsulate field diyoruz
+sonra getter setter seçiyoruz
+Vasıta classındaki her sınıf niteliği için get ve set
+metotları geldi
+TEkrar mainli classa geldik
+v1.setFiyat(100000); diyebiliriz
+v1.setMarka("Honda");
+v1.setModel(2003);
+v1.setRenk("bordo");
+
+v1.goster(); çağırdık tüm özellikleri gösterdi
+
+Şimdi bir class daha oluşturalım
+Vasıtanın tüm özellikleri olsun istiyoruz
+hepsini yazmak zorunda mıyız tekrardan hayır
+o halde Vasıta sınıfının tüm özelliklerini miras almak istiyoruz
+o zaman Kamyondan sonra extends Vasıta diyoruz
+
+public class Kamyon extends Vasıta{ 
+}  kamyon classı oluştu ve Vasıta classından miras almış olduk
+
+Şimdi mainli classa gelelim
+Kamyon sınıfından bir nesne türetelim
+Kamyon k1 = new Kamyon();
+k1. deyince setMarka, get MArka vs hepsi geldi
+k1.setMarka("Fatih");
+k1.setModel(2010);
+k1.setFiyat(2500000);
+k1.setRenk("Sarı");
+k1.goster(); diyelim tüm çıktılar geldi
+Kamyona ek özellikler ekleyelim
+public class Kamyon extends Vasıta{ 
+int kapasite;
+}  diyelim şimdi main de kapasiteyi de alalım
+
+k1.kapasite=5000; şeklinde bu sefer kamyondan özellik aldık
+private dersek de encapsulate edip
+k1.setKapasite(5000); dememiz gerekiyor
+
+Override:
+şimdi yeni bir mainli class oluşturalım
+main dışında class oluşturalım içinde de bir metot olsun
+class Yonetici{
+public void maasGoster(){sout(10000);} yöneticinin maaşını 10000 göstersin
+}
+
+bir de calisan sınıfı oluşturalım bu yonetici sınıfından miras alsın
+class Calisan extends Yonetici{
+}  içine birşey yazmıyoruz yoneticiden miras aldı zaten
+
+şimdi main içinde yonetici classından nesne oluşturalım
+sonra da çalışan sınıfından nesne oluşturalım
+
+Yonetici y =new Yonetici();
+Calisan c = new Calisan();
+
+y. deyince maasGoster() isimli metot geldi
+//y.maasGoster(); kapattık sonra
+c. dedik yine maasGoster() geldi
+c.maasGoster(); hem nitelikleri hem de metotları miras 
+almış oldu çıktı olarak da 10000 verdi
+ama  bu halde çalışanın da maaşı 10000 oldu aslında farklı olmalı
+miras aldığı için aynı görünüyor.
+o zaman şunu yapalım
+çalışan sınıfından çağrıldığı zaman yöneticinin maaşını vermesin
+başka bir çıktı versin kendi maaşını versin
+o halde yoneticiden şunu kopyalayıp calisana alalım
+public void maasGoster(){sout(5000);} olarak ekleyelim
+o halde add override annotation geldi
+add diyoruz başına @Override geldi şöyle oldu
+class Calisan extends Yonetici{
+@Override
+public void maasGoster(){sout(5000);} 
+}  şimdi tekrar 
+c.maasGoster(); dersek artık 5000 verir
+
+Override şu demektir
+aynı isimli metotun farklı classlar içerisinde kullanılıp
+farklı çıktılar alınmasına override denir
+
+override yapabilmek için 3 koşulun sağlanması gerekiyor
+2 class arasında miras alma ilişkisi olması gerekiyor
+2 metot da aynı isme sahip olmalı
+2 metotunda da parametrelerinin aynı olması gerekiyor
+
+Overload:
+Bir class içinde aynı isimli birden fazla metotun bulunmasıdır
+Ancak bu metotlar farklı parametreler içermelidir
+şimdi mainli bir class oluşturalım
+topla metodu oluşturalım
+metot int değer döndürmesi için başına int diyoruz
+ayrıca static ekledik ki topla metodundan nesne üretmeden
+kullanabilelim Ders18 class ismiyle bu metodu kullanabileceğiz
+public deseydik o zaman ders 18 classından nesne üretip
+o nesne vasıtasıyla metodu çağırmak gerekecekti
+static int topla(int a,int b){   2 parametre alıyor a ve b
+return a+b; diyoruz
+}
+şimdi bunu kopyalayıp int c ekleyelim
+static int topla(int a,int b,int c){ return a+b+c; diyoruz
+}
+aynı isimli 2 metot var parametreleri farklı
+şimdi doublelı ekleyelim
+static double topla(double a,double b){ return a+b; diyoruz
+}
+
+Şimdi main içine gidip Ders18. deyince 3 metot geldi
+hangisini seçeceğimizi soruyor
+sout(Ders18.topla(3,5)); dedik
+sout(Ders18.topla(3,5,7)); 
+sout(Ders18.topla(3.2,5.3)); 
+
+hepsinin toplamlarını verdi bu işlem overloading işlemidir
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
