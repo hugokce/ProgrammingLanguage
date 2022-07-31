@@ -1246,7 +1246,120 @@ hepsinin toplamlarını verdi bu işlem overloading işlemidir
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.udemy.com/course/draft/1901886/learn/lecture/12880730?start=0#overview
+38 dakika
+Lambda expression
+Javascript örneği
+fonksiyonu variablea eşitliyoruz
+var sumOfN = function(n)
+{
+return n*(n+1)/2;
+}
+print("Sum of first 5: "+ sumOfN(5));
+15 verdi
 
+Java örneği
+public class SumofNDemo
+{
+private static class LoopSumofN implements SumofN
+{
+@Override
+public int sum(int n)
+{
+int sum =0;
+for(int i = 1;i<=n;i++)
+{
+sum=sum+i;
+} return sum;
+}
+}
+public static void main(String[] args)
+{
+SumofN sumOfNLoop = new LoopSumOfN();
+sout(sumOfNLoop.sum(5));
+SumofN sumOfNFormula = new SumOfN()
+{
+@Override
+public int sum(int n)
+{
+return n*(n+1)/2;
+}
+};
+sout("Sumof 10" +sumOfNFormula.sum(10) );
+}  }
+
+Lambda expression
+(parameters) -> Expression / Block of statements
+x-> x*x
+x->{return x+10;}
+(int x)->x>1000 && x<=2000
+
+(int x,int y)-> {
+x=x+y;
+return x;
+}
+
+()->{sout("No Parameter");}
+
+Örnek lambda
+public class LambdaExpressionDemo1
+{
+psvm{
+SumofN sumOfNImpl=(n)-> {return (n*(n+1))/2;};
+sout(sumOfNImpl.sum(100));
+}
+}
+
+Genericler, classları ve metotları tüm data tipleri ile çalışabilir 
+hale getiriyor 
+<Type> return-type Method-Name(parameter list)
+örneklere bakalım
+<T> void Display(T value)
+<T1,T2> void Display(T1 x,T2 y)
+<T> void Display(T x, int y)
+<T> T GetValue()
+
+generic class örneği
+class MyGenericClass <T>
+{}
+
+class MyGenericClass <T1,T2>
+{}
+
+Örnek yapalım
+class GenericMethodDemo{
+static <T> void Display(T value)
+{
+sout("Value= "+value);
+}
+psvm
+{
+Display(10);
+Display(true);
+Display("GEneric MEthod Example");
+} }
+
+try{
+statement
+}
+catch (exceptionclass name)
+{
+statement
+}
+
+int num=100;
+try
+{
+num=num/value;
+sout(value);
+}
+catch(ArithmeticException e)
+{
+sout("Inside catch block ");
+sout("exception details "+e);
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------
 
 
 
