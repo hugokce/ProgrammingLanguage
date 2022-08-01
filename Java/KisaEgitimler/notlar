@@ -1361,6 +1361,364 @@ sout("exception details "+e);
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.udemy.com/course/learn-natural-language-processing-with-corenlp-in-java/learn/lecture/12967314?start=0#overview
+1,5 saat
+NLP Java 
+https://nlp.stanford.edu
+javatraineronline.com
+dineshkrishnan.com
+
+IntellijIDEA üzerinden gidiyor
+Maven Project açtık
+nlp-example dedik proje adına
+pom dosyasına gelip
+dependency ekliyoruz
+dependency
+groupId edu.stanford.nlp
+artifact stanford-corenlp
+version 3.9.2
+dependency
+
+dependency
+groupId edu.stanford.nlp
+artifactIf stanford-corenlp
+version 3.9.2
+classifier models
+dependency
+
+Creating a Pipeline
+
+Şimdi yeni paket oluşturalım adına com.dineshkrish.nlp diyelim
+içine class ekleyelim  Pipeline diyelim adına
+public class Pipeline{
+private static Properties properties;
+private static String propertiesName = "tokenize,ssplit,pos,lemma,ner,parse,sentiment";
+private static StanfordCoreNLP stanfordcoreNLP;
+
+private Pipeline(){
+
+}
+
+static {
+properties = new Properties();
+properties.setProperty("annotators",propertiesName);
+}
+
+public static StanfordCoreNLP getPipeline(){
+if (stanfordCoreNLP ==null) {
+stanfordCoreNLP = new StanfordCoreNLP(properties);
+}
+return stanfordCoreNLP ;
+}
+}
+
+Şimdi TokenizeExample adında yeni bir class oluşturalım
+public class TokenizeExample{
+psvm{
+
+StanfordCoreNLP = stanfordCoreNLP = Pipeline.getPipeline();
+String text = "Hey! This is Dinesh Krishnan";
+
+CoreDocument coreDocument = new CoreDocument(text);
+stanfordCoreNLP.annotate(coreDocument);
+
+List<CoreLabel> coreLabelList = coreDocument.tokens();
+
+for(CoreLabel coreLabel : coreLabelList)
+{
+sout(coreLabel.originalText());
+}
+}
+}
+
+şimdi çalıştıralım
+kelimelerin ayrıştığını gördük
+
+Sentence Analizi
+Şimdi yeni class oluşturalım adına SentenceRecognizer diyelim
+public class SentenceRecognizer{
+psvm{
+StanfordCoreNLP stanfordCoreNLP = Pipeline.getPipeline();
+String text = "Hey! This is Dinesh Krishnan. I am Software Developer and Consultant.";
+CoreDocument coreDocument = new CoreDocument(text);
+stanfordCoreNLP.annotate(coreDocument);
+List<CoreSentence> sentences = coreDocument.sentences();
+for (CoreSentence sentence : sentences){
+sout(sentence.toString());
+}
+}
+}
+
+Şimdi çalıştıralım classı ve cümlelere göre ayrıldığını görelim
+Part of Speech POS
+propertiesName içine şimdi de pos ekledik
+Şimdi yeni bir class ekleyelim ve adını POSExample koyalım
+public class POSExample{
+psvm{
+StanfordCoreNLP stanfordCoreNLP = Pipeline.getPipeline();
+String text = "Hey! This is Dinesh Krishnan.";
+CoreDocument coreDocument = new CoreDocument(text);
+stanfordCoreNLP.annotate(coreDocument);
+List<CoreLabel> coreLabelList = coreDocument.tokens();
+for (CoreLabel coreLabel: coreLabelList){
+String pos = coreLabel.get(CoreAnnotations.PartOfSpeechAnnotation.class);
+sout(coreLabel.originalText()+" = "+pos);
+}
+}
+}
+Şimdi çalıştıralım ve sonucunu görelim
+
+Lemmatization:
+şimdi propertiesName içine lemma ekledik
+Şimdi yeni bir class oluşturalım adına LemmaExample diyelim
+public class LemmaExample{
+psvm{
+StanfordCoreNLP stanfordCoreNLP = Pipeline.getPipeline();
+String text = "I am trying to learn new technologies.";
+CoreDocument coreDocument = new CoreDocument(text);
+stanfordCoreNLP.annotate(coreDocument);
+List<CoreLabel> coreLabelList = coreDocument.tokens();
+for (CoreLabel coreLabel: coreLabelList){
+String lemma = coreLabel.lemma();
+sout(coreLabel.originalText()+" = "+lemma);
+}
+}
+}
+şimdi çalıştıralım
+
+Named Entity Recognizer(NER):
+şimdi propertiesNamee ner ekledik
+yeni bir class ekleyelim ve adına NERExample diyelim
+public class NERExample{
+psvm{
+StanfordCoreNLP stanfordCoreNLP = Pipeline.getPipeline();
+String text = "Hey! My name is Dinesh Krishnan and I have friend his name is Robert."+
+" We both are living in New York";
+CoreDocument coreDocument = new CoreDocument(text);
+stanfordCoreNLP.annotate(coreDocument);
+List<CoreLabel> coreLabels = coreDocument.tokens();
+for (CoreLabel coreLabel: coreLabels){
+String ner = coreLabel.get(CoreAnnotations.NamedEntityTagAnnotation.class);
+sout(coreLabel.originalText()+" = "+ner);
+}
+}
+şimdi çalıştıralım
+
+Sentiment Analysis:
+yine propertiesName içine parse ve sentiment ekliyoruz
+şimdi yeni class oluşturalım adına SentimentAnalysis diyelim
+public class SentimentAnalysis{
+psvm{
+StanfordCoreNLP stanfordCoreNLP = Pipeline.getPipeline();
+String text = "Hello this is John. I don't like this place.";
+CoreDocument coreDocument = new CoreDocument(text);
+stanfordCoreNLP.annotate(coreDocument);
+List<CoreSentence> sentences = coreDocument.sentences();
+for (CoreSentence sentence: sentences){
+String sentiment = sentence.sentiment();
+sout(sentiment+"\t"+sentence);
+}
+}
+
+şimdi çalıştıralım
+sonra really dont like yaptık negativee döndü
+
+Spring Boot CoreNLP Integration :
+Yeni bir Spring Initializer projesi oluşturduk
+group com.dineshkrish
+artifact ner-application dedik
+sonra çıkan pencerede web seçtik
+template enginde thymeleaf seçtik
+pom içine dependency ekliyoruz
+dependency ekliyoruz
+dependency
+groupId edu.stanford.nlp
+artifact stanford-corenlp
+version 3.9.2
+dependency
+
+dependency
+groupId edu.stanford.nlp
+artifactIf stanford-corenlp
+version 3.9.2
+classifier models
+dependency
+ekledik
+
+Yeni bir paket ekledik adına controller dedik
+içine class ekledik NERcontroller dedik
+class dışına şunlar ekledik paket altına
+@RestController
+@RequestMapping(value = "/api/v1")
+şimdi class içine yazalım
+public class NERcontroller {
+@PostMapping
+@RequestMapping(value = "/ner")
+public List<String> ner(@RequestBody final String input,@RequestParam final Type type){
+
+return null;
+
+}
+}
+
+
+yeni paket ekledik adına model dedik
+İçine Enum tipinde class ekleyelim adına Type diyelim
+public enum Type{
+PERSON("Person"),
+CITY("City"),
+STATE_OR_PROVINCE("State_Or_Province"),
+COUNTRY("Country"),
+EMAIL("Email"),
+TITLE("Title");
+
+private String type;
+
+Type(String type){
+this.type=type;
+}
+public String getName(){
+return type;
+}
+}
+
+şimdi yeni bir paket daha ekliyoruz adına core diyoruz
+içine Class ekleyelim adına Pipeline diyoruz başa servis ekledik
+@Service 
+public class Pipeline{
+private static Properties properties;
+private static String propertiesName = "tokenize,ssplit,pos,lemma,ner";
+private static StanfordCoreNLP stanfordcoreNLP;
+
+private Pipeline(){
+}
+
+static {
+properties = new Properties();
+properties.setProperty("annotators",propertiesName);
+}
+
+@Bean(name = "stanfordCoreNLP")  sonradan ekledik
+public static StanfordCoreNLP getInstance(){
+if(stanfordCoreNLP==null) {
+stanfordCoreNLP = new StanfordCoreNLP(properties);
+}
+return stanfordCoreNLP;
+}
+}
+
+
+Şimdi nerController classına geri dönelim eklemeler yapalım
+
+@RestController
+@RequestMapping(value = "/api/v1")
+şimdi class içine yazalım
+public class NERcontroller {
+
+@Autowired
+private StanfordCoreNLP stanfordCoreNLP;
+
+@PostMapping
+@RequestMapping(value = "/ner")
+public Set<String> ner(@RequestBody final String input,@RequestParam final Type type){
+
+CoreDocument coreDocument = new CoreDocument(input);
+stanfordCoreNLP.annotate(coreDocument);
+List<CoreLabels> coreLabels = coreDocument.tokens();
+
+return new HashSet<>(collectList(coreLabels,type));
+
+}
+
+private List<String> collectList(List<CoreLabel> coreLabels,final Type type){
+
+return coreLabels
+.stream()
+.filter(coreLabel -> type.getName().equalsIgnoreCase(coreLabel.get(CoreAnnotations.NamedEntityTagAnnotation.class)))
+.map(CoreLabel::originalText)
+.collect(Collectors.toList());
+}
+}
+
+
+şimdi NerApplicationı çalıştıralım
+public class NerApplication{
+psvm{
+SpringApplication.run(NerApplication.class,args);
+}
+}
+
+Postman ile bakıyoruz
+URL istiyor şunu yazalım
+http://localhost:8080/api/v1/ner  PERSON seçtik
+this is Dinesh dedik Dinesh seçti
+this is Dinesh and my friend name is Robert dedik
+this is Dinesh, I am from India.  country seçince geldi
+
+şimdi ner-application altında src resources altında templates var
+new html file diyelim index.html adına verelim
+title NER Application title
+<link rel="stylesheet" 
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+dedik
+body içine yazalım
+
+<body>
+<form>
+<div class="container">
+<h3>Input</h3>
+<div class = "form-group">
+<label for="input"> Enter Your Text Here!</label>
+<textarea id="input" class="form-control" rows="4"></textarea>
+</div>
+<div class="form-group">
+<label for="type"> Select Type</label>
+<select class = "form-control" id="type" onchange="ner(this.value)">
+<option value = "">Select Type</option>
+<option value = "PERSON">Person</option>
+<option value = "CITY">City</option>
+<option value = "STATE_OR_PROVINCE">State or Province</option>
+<option value = "COUNTRY">Country</option>
+<option value = "TITLE">(Job) Title</option>
+<option value = "EMAIL">Email</option>
+</select>
+</div>
+<h3>Output</h3>
+<div clas="form-group" id="result"></div>
+</div>
+</form>
+
+<script type="text/javascript">
+function ner(type){
+var input = $("#input").val();
+$.ajax({
+type:'POST',
+url:"http://localhost:8080/api/v1/ner?type="+type,
+contentType:'text/plain; charset=utf-8',
+data:input,
+success:function(response){
+var result = "";
+$.each(response,function(index,value){
+result=result+"<span class='badge badge-success'>"+value+"</span>&nbsp;";
+})
+$("#result").html(result);
+}
+});
+}
+</script>
+
+
+Şimdi NERApplication çalıştıralım
+
+this is Dinesh yazdık Person seçtik
+Hey! Hello everyone, My name is Dinesh Krishnan, I am from Chennai, India.
+I am Software Developer and Consultant. feel free to reach me via 
+dineshk.training@gmail.com
+şimdi tüm senaryoları deneyelim
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
