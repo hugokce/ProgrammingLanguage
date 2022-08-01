@@ -1803,6 +1803,711 @@ throw new ArithmeticException("not valid operation");
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.udemy.com/course/easy-to-follow-java-programming/learn/lecture/7380092?start=0#overview
+1,5 saat
+
+Value replacing exercise
+public class Replace{
+psvm{
+int first = 7;
+int second=9;
+sout("first= "+first+" second="+second);
+} }
+
+Glass exercise
+public class Replace{
+psvm{
+int first = 7;
+int second=9;
+int third;
+third=second;
+second=first;
+first=third;
+sout("first= "+first+" second="+second);
+} }
+şimdi yer değiştirdiler first ve second
+
+Temperature Exercise:
+F = 9/5C + 32
+yeni class oluşturalım
+public class Temperature{
+psvm{
+sout("Give Celcius value:")
+Scanner sc = new Scanner(System.in);
+double celcius = sc.nextDouble();
+int fahrenheit =9.0/5.0*celcius+32;
+sout("Fahrenheit: "+fahrenheit);
+} }
+
+Boiling Exercise:
+
+public class Boiling{
+psvm{
+sout("give in the temperature: ");
+Scanner sc = new Scanner(System.in);
+int temp = sc.nextInt();
+if(temp>=100){
+sout("The water is boiling.");
+} else {
+sout("The water is not boiling.")
+}}}
+
+Boiling and Freezing exercise:
+public class BoilingAndFreezing{
+psvm{
+sout("give in the temperature: ");
+Scanner sc = new Scanner(System.in);
+int temp = sc.nextInt();
+if(temp>=100){
+sout("The water is boiling.");
+} else {
+if (temp<=0){
+sout("water is freezing");
+} else { sout("water is in normal state.");
+}}
+}}
+
+daha kısa yazalım
+public class BoilingAndFreezing{
+psvm{
+sout("give in the temperature: ");
+Scanner sc = new Scanner(System.in);
+int temp = sc.nextInt();
+if(temp>=100){
+sout("The water is boiling.");
+} else if (temp<=0){
+sout("water is freezing");
+} else { 
+sout("water is in normal state.");
+}
+}}
+
+Logic Operators:
+Java 0<temp<100 anlamaz
+if(0<temp && temp<100) şeklinde anlar
+
+Fighting Exercise:
+Attributelar AttackPoints AP, Defense Points DP
+Damage D ve LifePoints LP
+Fight one round
+
+public class Fighting {
+psvm {
+Scanner sc = new Scanner(System.in);
+sout("Attack Points of Monster: ");
+int monsterAttack = sc.nextInt();
+
+sout("Defense Points of Monster: ");
+int monsterDefense = sc.nextInt();
+
+sout("Damage of Monster: ");
+int monsterDamage = sc.nextInt();
+
+sout("Life Points of Monster: ");
+int monsterLife = sc.nextInt();
+
+
+sout("Your Attack Points: ");
+int yourAttack = sc.nextInt();
+
+sout("Your Defense Points: ");
+int yourDefense = sc.nextInt();
+
+sout("Your Damage: ");
+int yourDamage = sc.nextInt();
+
+sout("Your Life Points: ");
+int yourLife = sc.nextInt();
+
+Şimdi randomnumber oluşturalım
+Random generator = new Random();
+boolean attacker = generator.nextBoolean();
+
+if(attacker) {
+sout("You attack");
+int dice = generator.nextInt(6)+1 + generator.nextInt(6)+1;
+int attackValue = yourAttack+dice;
+sout("Rolled Values: "+dice);
+sout("Your attack Value: "+attackValue);
+if (attackValue>monsterDefense){
+sout("Your attack was successful.");
+monsterLife = monsterLife - yourDamage;
+sout("Monster's remaining Life Points: "+monsterLife);
+} else {
+sout("Your attack was not successful.");
+}
+} else {
+sout("Monster attacks.");
+int dice = generator.nextInt(6)+1 + generator.nextInt(6)+1;
+int attackValue = monsterAttack+dice;
+sout("Rolled Values: "+dice);
+sout("Monster's attack Value: "+attackValue);
+if (attackValue>yourDefense){
+sout("Monster's attack was successful.");
+yourLife = yourLife - monsterDamage;
+sout("Your remaining Life Points: "+yourLife);
+} else {
+sout("Monster's attack was not successful.");
+}
+}
+}
+
+şimdi çalıştıralım  APM 5 DPM 10 DM 3 LPM 40 
+YAP 10 YDP 25 YD 6 YLP 40 dedik
+
+Looplar:
+do {
+statement 1;
+statement 2;
+statement 3;
+} while(condition);
+
+public class check_a_die{
+psvm{
+Scanner sc = new Scanner(System.in);
+int die;
+do {
+Sout("Please give the value of the die:");
+die=sc.nextInt();
+if(die<1 || die>6) {
+sout("The value of the die is bad.");
+}
+} while (die<1 || die>6);
+} }
+
+
+Lets fight until death exercise:
+ÜStteki monster kodlarını alalım
+
+public class Fighting {
+psvm {
+Scanner sc = new Scanner(System.in);
+sout("Attack Points of Monster: ");
+int monsterAttack = sc.nextInt();
+
+sout("Defense Points of Monster: ");
+int monsterDefense = sc.nextInt();
+
+sout("Damage of Monster: ");
+int monsterDamage = sc.nextInt();
+
+sout("Life Points of Monster: ");
+int monsterLife = sc.nextInt();
+
+
+sout("Your Attack Points: ");
+int yourAttack = sc.nextInt();
+
+sout("Your Defense Points: ");
+int yourDefense = sc.nextInt();
+
+sout("Your Damage: ");
+int yourDamage = sc.nextInt();
+
+sout("Your Life Points: ");
+int yourLife = sc.nextInt();
+
+sc.nextLine();
+
+Şimdi randomnumber oluşturalım
+Random generator = new Random();
+
+do {
+boolean attacker = generator.nextBoolean();
+
+if(attacker) {
+sout("You attack");
+int dice = generator.nextInt(6)+1 + generator.nextInt(6)+1;
+int attackValue = yourAttack+dice;
+sout("Rolled Values: "+dice);
+sout("Your attack Value: "+attackValue);
+if (attackValue>monsterDefense){
+sout("Your attack was successful.");
+monsterLife = monsterLife - yourDamage;
+sout("Monster's remaining Life Points: "+monsterLife);
+} else {
+sout("Your attack was not successful.");
+}
+} else {
+sout("Monster attacks.");
+int dice = generator.nextInt(6)+1 + generator.nextInt(6)+1;
+int attackValue = monsterAttack+dice;
+sout("Rolled Values: "+dice);
+sout("Monster's attack Value: "+attackValue);
+if (attackValue>yourDefense){
+sout("Monster's attack was successful.");
+yourLife = yourLife - monsterDamage;
+sout("Your remaining Life Points: "+yourLife);
+} else {
+sout("Monster's attack was not successful.");
+}
+sout("Press Enter to continue.");
+sc.nextLine();
+} while (yourLife>0 && monsterLife >0);
+if (monsterLife>0) {
+sout("You are dead. RIP. :-(")
+}
+if (yourLife>0) {
+sout("You won. The Monster is dead.")
+}
+}
+}
+şimdi çalıştıralım
+10 20 4 20 
+20 30 5 60 dedik
+
+while loop:
+while(condition) {
+statement1;
+statement2;
+statement3;
+}
+
+Returns number between 0-9
+int nxt = ran.nextInt(10);
+
+public class Counting {
+psvm{
+Random generator = new Random();
+int die= generator.nextInt(6)+1;   0dan başladığı için 1 ekliyoruz  
+int count=0;
+while (die!=6) {
+sout(die + " is rolled");
+count++;
+die=generator.nextInt(6)+1;
+}
+sout("You had to roll "+count+ " times before getting a 6.");
+}
+}
+
+şimdi çalıştıralım 
+
+switch syntax:
+variable int, String char ve enum olabilir
+switch(variable) {
+case 1 :  az sayıda durum için uygundur toplama çıkarma çarpma bölme mesela
+statement1;
+statement2;
+break;
+
+case 2 :
+statement3;
+statement4;
+break;
+...
+default
+statement5;
+break;
+}
+
+ama yaş gruplarını isimlendirme dersek uğraştırıcı olur
+
+Run Away Exercise:
+Şimdi fighting exercisea dönelim
+Bir önceki exercise kopyalayıp devam ediyoruz
+
+public class Fighting {
+psvm {
+Scanner sc = new Scanner(System.in);
+sout("Attack Points of Monster: ");
+int monsterAttack = sc.nextInt();
+
+sout("Defense Points of Monster: ");
+int monsterDefense = sc.nextInt();
+
+sout("Damage of Monster: ");
+int monsterDamage = sc.nextInt();
+
+sout("Life Points of Monster: ");
+int monsterLife = sc.nextInt();
+
+
+sout("Your Attack Points: ");
+int yourAttack = sc.nextInt();
+
+sout("Your Defense Points: ");
+int yourDefense = sc.nextInt();
+
+sout("Your Damage: ");
+int yourDamage = sc.nextInt();
+
+sout("Your Life Points: ");
+int yourLife = sc.nextInt();
+
+sc.nextLine();
+boolean runaway = false;
+Şimdi randomnumber oluşturalım
+Random generator = new Random();
+
+do {
+boolean attacker = generator.nextBoolean();
+
+if(attacker) {
+sout("You attack");
+int dice = generator.nextInt(6)+1 + generator.nextInt(6)+1;
+int attackValue = yourAttack+dice;
+sout("Rolled Values: "+dice);
+sout("Your attack Value: "+attackValue);
+if (attackValue>monsterDefense){
+sout("Your attack was successful.");
+monsterLife = monsterLife - yourDamage;
+sout("Monster's remaining Life Points: "+monsterLife);
+} else {
+sout("Your attack was not successful.");
+}
+} else {
+sout("Monster attacks.");
+int dice = generator.nextInt(6)+1 + generator.nextInt(6)+1;
+int attackValue = monsterAttack+dice;
+sout("Rolled Values: "+dice);
+sout("Monster's attack Value: "+attackValue);
+if (attackValue>yourDefense){
+sout("Monster's attack was successful.");
+yourLife = yourLife - monsterDamage;
+sout("Your remaining Life Points: "+yourLife);
+} else {
+sout("Monster's attack was not successful.");
+}
+sout("Press Enter to continue. (Or type in 'run' to run away)");
+command variablea saklayalım
+String command = sc.nextLine();
+switch (command) {
+case "run":
+sout("You ran away. You coward! -4 Life Points!");
+yourLife-=4;
+runaway=true;
+break;
+default:
+
+}
+} while (yourLife>0 && monsterLife >0 && !runaway);
+if (yourLife<=0) {
+sout("You are dead. RIP. :-(")
+}
+if (monsterLife<=0) {
+sout("You won. The Monster is dead.")
+}
+}
+}
+
+şimdi çalıştıralım
+99 99 5 50
+10 20 3 15
+
+Monster name generator exercise:
+üstteki kodu alalım
+
+
+public class Fighting {
+psvm {
+Scanner sc = new Scanner(System.in);
+Random generator = new Random();   buraya taşıdık
+
+String monsterName;  monster adını oluşturalım
+int num = generator.nextInt(5);
+switch (num) {
+case 0: monsterName = "Black Daemon"; break;
+case 1: monsterName = "The Rabbit"; break;
+case 2: monsterName = "Silver Dragon"; break;
+case 3: monsterName = "Mountain Troll"; break;
+case 4: monsterName = "Alien"; break;
+default: monsterName = "N/A"; break;
+}
+
+sout("Attack Points of "+monsterName+": ");
+int monsterAttack = generator.nextInt(8)+1; 
+sout(monsterAttack);
+
+sout("Defense Points of "+monsterName+": ");
+int monsterDefense = generator.nextInt(15)+3;
+sout(monsterDefense);
+
+sout("Damage of "+monsterName+": ");
+int monsterDamage = generator.nextInt(3)+1;
+sout(monsterDamage);
+
+sout("Life Points of "+monsterName+": ");
+int monsterLife = generator.nextInt(20)+15;
+sout(monsterLife);
+
+
+sout("Your Attack Points: ");
+int yourAttack = generator.nextInt(6)+5;
+sout(yourAttack);
+
+sout("Your Defense Points: ");
+int yourDefense = generator.nextInt(10)+6;
+sout(yourDefense);
+
+sout("Your Damage: ");
+int yourDamage = generator.nextInt(3)+2;
+sout(yourDamage);
+
+sout("Your Life Points: ");
+int yourLife = generator.nextInt(20)+25;
+sout(yourLife);
+
+//sc.nextLine();
+boolean runaway = false;
+
+
+
+do {
+boolean attacker = generator.nextBoolean();
+
+if(attacker) {
+sout("You attack");
+int dice = generator.nextInt(6)+1 + generator.nextInt(6)+1;
+int attackValue = yourAttack+dice;
+sout("Rolled Values: "+dice);
+sout("Your attack Value: "+attackValue);
+if (attackValue>monsterDefense){
+sout("Your attack was successful.");
+monsterLife = monsterLife - yourDamage;
+sout(monsterName +"'s remaining Life Points: "+monsterLife);
+} else {
+sout("Your attack was not successful.");
+}
+} else {
+sout(monsterName +" attacks.");
+int dice = generator.nextInt(6)+1 + generator.nextInt(6)+1;
+int attackValue = monsterAttack+dice;
+sout("Rolled Values: "+dice);
+sout(monsterName +"'s attack Value: "+attackValue);
+if (attackValue>yourDefense){
+sout(monsterName+"'s attack was successful.");
+yourLife = yourLife - monsterDamage;
+sout("Your remaining Life Points: "+yourLife);
+} else {
+sout(monsterName+"'s attack was not successful.");
+}
+sout("Press Enter to continue. (Or type in 'run' to run away)");
+command variablea saklayalım
+String command = sc.nextLine();
+switch (command) {
+case "run":
+sout("You ran away. You coward! -4 Life Points!");
+yourLife-=4;
+runaway=true;
+break;
+default:
+
+}
+} while (yourLife>0 && monsterLife >0 && !runaway);
+if (yourLife<=0) {
+sout("You are dead. RIP. :-(")
+}
+if (monsterLife<=0) {
+sout("You won. The "monsterName+" is dead.")
+}
+}
+}
+
+Şimdi çalıştıralım
+
+for loop syntax
+for (initialization; condition; increment) {
+statement1;
+statement2;
+statement3;
+}
+
+for (int i=0; i<3; i++) {
+statement1;
+statement2;
+statement3;
+}
+
+for sonucunda i değeri remove edilir
+while olunca i yi devamında kullanabiliriz farklardan biri de bu
+for (int i=0; i<3; i++) {
+statement1;
+statement2;
+statement3;
+}
+
+int i=0
+while ( i<3) {
+statement1;
+statement2;
+statement3;
+i++
+}
+
+Şimdi 3 tane monster ile savaşalım
+
+Fighting kodlarını tekrar alalım
+
+
+public class Fighting {
+psvm {
+Scanner sc = new Scanner(System.in);
+Random generator = new Random();   buraya taşıdık
+
+Bizim puanları tekrar etmesin diye başa aldık
+sout("Your Attack Points: ");
+int yourAttack = generator.nextInt(6)+5;
+sout(yourAttack);
+
+sout("Your Defense Points: ");
+int yourDefense = generator.nextInt(10)+6;
+sout(yourDefense);
+
+sout("Your Damage: ");
+int yourDamage = generator.nextInt(3)+2;
+sout(yourDamage);
+
+sout("Your Life Points: ");
+int yourLife = generator.nextInt(20)+25;
+sout(yourLife);
+
+
+for (int i=0;i<3;i++) {  bunun kapanışı en sonda
+String monsterName;  monster adını oluşturalım
+int num = generator.nextInt(5);
+switch (num) {
+case 0: monsterName = "Black Daemon"; break;
+case 1: monsterName = "The Rabbit"; break;
+case 2: monsterName = "Silver Dragon"; break;
+case 3: monsterName = "Mountain Troll"; break;
+case 4: monsterName = "Alien"; break;
+default: monsterName = "N/A"; break;
+}
+
+sout("Attack Points of "+monsterName+": ");
+int monsterAttack = generator.nextInt(8)+1; 
+sout(monsterAttack);
+
+sout("Defense Points of "+monsterName+": ");
+int monsterDefense = generator.nextInt(10)+3;  bunu da 10 yaptık
+sout(monsterDefense);
+
+sout("Damage of "+monsterName+": ");
+int monsterDamage = generator.nextInt(3)+1;
+sout(monsterDamage);
+
+sout("Life Points of "+monsterName+": ");
+int monsterLife = generator.nextInt(20)+15;
+sout(monsterLife);
+
+
+
+
+//sc.nextLine();
+boolean runaway = false;
+
+
+
+do {
+boolean attacker = generator.nextBoolean();
+
+if(attacker) {
+sout("You attack");
+int dice = generator.nextInt(6)+1 + generator.nextInt(6)+1;
+int attackValue = yourAttack+dice;
+sout("Rolled Values: "+dice);
+sout("Your attack Value: "+attackValue);
+if (attackValue>monsterDefense){
+sout("Your attack was successful.");
+monsterLife = monsterLife - yourDamage;
+sout(monsterName +"'s remaining Life Points: "+monsterLife);
+} else {
+sout("Your attack was not successful.");
+}
+} else {
+sout(monsterName +" attacks.");
+int dice = generator.nextInt(6)+1 + generator.nextInt(6)+1;
+int attackValue = monsterAttack+dice;
+sout("Rolled Values: "+dice);
+sout(monsterName +"'s attack Value: "+attackValue);
+if (attackValue>yourDefense){
+sout(monsterName+"'s attack was successful.");
+yourLife = yourLife - monsterDamage;
+sout("Your remaining Life Points: "+yourLife);
+} else {
+sout(monsterName+"'s attack was not successful.");
+}
+sout("Press Enter to continue. (Or type in 'run' to run away)");
+command variablea saklayalım
+String command = sc.nextLine();
+switch (command) {
+case "run":
+sout("You ran away. You coward! -4 Life Points!");
+yourLife-=4;
+runaway=true;
+break;
+default:
+
+}
+} while (yourLife>0 && monsterLife >0 && !runaway);
+if (yourLife<=0) {
+sout("You are dead. RIP. :-(");
+break;
+}
+if (monsterLife<=0) {
+sout("You won. The "monsterName+" is dead.")
+}
+}  for burada bitti
+}
+}
+
+şimdi do-while 1 tane monster ile savaşmak içindi
+Şimdi isimlendirme 3 defa tekrar etmeli
+monster puanlaması 3 defa tekrar etmeli 
+ama bizim puanlarımız tekrar etmemeli.
+
+
+şimdi çalıştıralım
+
+break and continue:
+for (int i = 0;i<3;i++){
+statement1;
+if(condition)
+continue;
+statement2;  continue şart sağlanırsa bu s2 ve s3leri çalıştırmaz
+statement3;
+}
+
+while (condition1){
+statement1;
+if(condition2)
+continue;
+statement2;  continue şart sağlanırsa bu s2 ve s3leri çalıştırmaz
+statement3;
+increment;
+}
+
+Multiplication table exercise:
+Yeni class oluşturalım Multiplication diyelim adına
+public class Multiplication{
+psvm{
+for (int j=1;j<9;j++){
+//sout(j);
+//sout("%3d",j);   aralarına 3 boşluk verir
+}
+sout();
+}
+}
+şimdi ikinci loopu ekleyelim
+
+public class Multiplication{
+psvm{
+for (int i=1;i<9;i++) {
+
+for (int j=1;j<9;j++){
+//sout(j);
+sout("%3d",i*j);  // aralarına 3 boşluk verir i*j dedik çarpım tablosu oluştu
+}
+sout();
+}  i li for loopu kapattık
+}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
 
 
 
