@@ -1720,7 +1720,88 @@ dineshk.training@gmail.com
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.udemy.com/course/java-for-beginners-step-by-step/learn/lecture/10052462?start=0#overview
+1,5 saat
+Eclipse ile anlatım var
+java decompiler gerekirse JD-GUI güzel
+EA_5 ekran görüntüsü var
+Notes_ExceptionHandling.pdf indirildi
+Class objectleri tanımlamak için olan bir templatetir
+public class AccountHolder{
+String firstName;
+String lastName;
+int age;
+float accountBalance;
+boolean eligibleForCreditCard;
+public void testEligibilityForCreditCard(){
+if(age>25&&accountBalance>=20000) {
+eligibleForCreditCard=true;
+}  } }
 
+
+public class AccountHolderObjects{
+psvm{
+AccountHolder tom = new AccountHolder();
+AccountHolder henry = new AccountHolder();
+AccountHolder sarah = new AccountHolder();
+
+tom.firstName="Tom";
+tom.lastName="Smith";
+tom.age=21;
+tom.accountBalance=10000;
+tom.testEligibilityForCreditCard();
+sout("Is Tom Eligible for CC :"+tom.eligibleForCreditCard);
+//sonuç olarak false verecek şartları sağlamadı çünkü
+// herny için bakalım bir de 
+
+henry.firstName="Henry";
+henry.lastName="Hill";
+henry.age=31;
+henry.accountBalance=20000;
+henry.testEligibilityForCreditCard();
+sout("Is Henry Eligible for CC :"+henry.eligibleForCreditCard);
+// true verecek 
+}
+}
+
+Exception Handling:
+public class ExceptionHandlingDemo {
+psvm{
+try {
+sout(hello world);
+int i = 1/0;
+sout(completed);
+}
+catch(Exception exp){   //exp istediğimizi kısaltmayı verebiliriz
+sout("I am inside catch block")  // üst taraf hata verince bunu yazdırdı
+sout("Message is : "+exp.getMEssage());   //  / by zero verdi
+sout("Cause is: "+exp.getCause());       //  null verdi
+exp.printStackTrace();   
+} 
+finally {
+sout("I am inside finally block");
+}
+} }
+
+Şu şekilde de yazabiliriz
+
+public class ExceptionHandlingDemo {
+public static void main(String[] args){
+try{
+demo();
+} catch (Exception e) {
+e.printStackTrace();
+}
+}
+
+public static void demo() throws Exception{
+sout(hello world);
+throw new ArithmeticException("not valid operation");
+//int i = 1/0;
+//sout(completed);
+} }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
