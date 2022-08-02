@@ -2505,7 +2505,325 @@ sout();
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.udemy.com/course/hibernate-with-java/learn/lecture/10564714?start=0#overview
+2 saat
+hibernate anlatıyor objectrelational mapping tool for java
+ORM object oriented programlama dillerinde uyumsuz sistemlerde 
+datayı çevirmek için kullanılan programlama tekniğidir
+java object <> hibernate <> DB
+hibernate db bağımsızdır
+sql ile arası iyidir
+jdbc ilişkili kodlamayı minimize eder
 
+public class users {
+int userId;
+String username;
+String password;
+String firstName;
+String lastName;
+}
+
+bunu hibernate alır ve dbte tablo oluşturur
+lokale mysql kurulumunu güzel anlatıyor 
+mysql workbench kuruldu ayrıca
+şema oluşturuyoruz project adlı 
+sonra create table diyoruz users diyoruz adına
+
+Eclipse üzerinden çalışıyoruz
+hibernate.org
+Hibernate ORM 5.8 indirdim
+eğitimdeki 5.2.8 end of life
+mysql connector for java indirelim
+https://dev.mysql.com/downloads/connector/j/
+platform independent seçiyoruz
+8.0.30 4.9 M olanı indirdik
+hibernate-search-5.8.0.Final-dist.zip
+mysql-connector-java-8.0.30.zip
+
+hibernates zip açınca lib içinde required klasöründeki
+dosyaları kopyalarız ve Eclipse proje altında oluşturduğumuz
+lib dosyası içine yapıştırırız 
+
+sonra mysql connector java açarız içindeki
+mysql-connector-java-5.0.8-bin.jar dosyasını kopyalarız
+sonra yine eclipseteki lib klasörünün içine yapıştırırız
+
+Projeye geliriz sağ tıklayıp Build Path --> Configure Build Path deriz
+Libraries gelip Add JARS deriz
+az önce yapıştırdığımız lib altındaki dosyaları gösteririz
+
+https://studyeasy.org/
+https://studyeasy.org/category/hibernate/
+https://studyeasy.org/hibernate/hibernate-configuration-xml/
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+ 
+<hibernate-configuration>
+    <session-factory>
+ 
+        <!-- Connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+              <!-- Sample MySQL URL provided  -->  
+        <property name="connection.url">jdbc:mysql://localhost:3306/test</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+           
+        <!-- Show SQL on console -->
+        <property name="show_sql">true</property>
+ 
+		<!--Setting Session context model -->
+		<property name="current_session_context_class">thread</property>
+ 
+    </session-factory>
+</hibernate-configuration>
+
+Şimdi src foldera gelip Yeni dosya diyoruz Other diyoruz
+XML file diyoruz adına hibernate.cfg.xml diyoruz
+içine bu üstteki kodu yapıştırıyoruz
+
+<session-factory> üzerine konuşacağız
+session object oluşturur ve başlangıçta oluşturulur ve sonra kullanılır
+session db ile connection sağlar kısa ömürlü ve güvenliği azdır
+
+Adding Entity Class 
+src altına yeni paket oluşturduk org.studyeasy.hibernate.entity dedik adına
+bunun altına yeni class ekleyelim
+Class ismi ile table adı aynı olsun buna dikkat edelim
+
+@Entity(name="users")
+@Table(name="users")
+public class Users {
+@Id
+@Column(name="user_id")
+int userId;
+
+@Column(name="username")
+String username;
+
+@Column(name="password")
+String password;
+
+@Column(name="first_name")
+String firstName;
+
+@Column(name="last_name")
+String lastName;
+}
+
+
+public Users(String username, String password, String firstName, String lastName){
+super();
+this.username=username;
+this.password=password;
+this.firstName=firstName;
+this.lastName=lastName;
+}
+
+Şimdi getter and setter ekliyoruz
+public int getUserId(){
+return userId;
+}
+
+public void setUserId(int userId) {
+this.userId=userId;
+}
+
+public String getUsername(){
+return username;
+}
+
+public void setUsername(String username) {
+this.username=username;
+}
+
+public String getPassword(){
+return password;
+}
+
+public void setPassword(String password) {
+this.password=password;
+}
+
+
+public String getFirstname(){
+return firstname;
+}
+
+public void setFirstname(String firstname) {
+this.firstname=firstname;
+}
+
+public String getLastname(){
+return lastname;
+}
+
+public void setLastname(String lastname) {
+this.lastname=lastname;
+}
+
+
+Generate Constructor using Fields dedik
+userID harici seçtik bunu Column altına attık
+
+Hibernate In Action:
+Şimdi hibernate paketi altında yeni class ekleyelim
+App diyelim
+public class App {
+psvm{
+SessionFactory factory = new Configuration()
+			     .configure("hibernate.cfg.xml")
+			     .addAnnotatedClass(Users.class)
+			     .buildSessionFactory();
+Session session = factory.getCurrentSession();
+try{
+//Create object of entity class type
+Users user = new Users("username","password","firstName","lastName");
+//start transaction
+session.beginTransaction();
+//perform operation
+session.save(user);
+//commit the transaction
+session.getTransation().commit();
+sout("Row added");
+
+} finally {
+session.close();
+factory.close();
+}  }  }
+
+CRUD İşlemleri Retrieving Record
+Şimdi Users.java @Override ekleyelim
+@Override
+public String toString() {
+return "Users [userId=" + userId + ", username=" +username+ ",
+password="+password+ firstName +",lastName="+lastName+"]";
+}
+
+Şimdi yine Generate Constructor using Fields diyelim
+public Users(){
+}
+
+şimdi try içini değiştirelim
+
+try{
+//Create object of entity class type
+Users user = new Users();
+//start transaction
+session.beginTransaction();
+//perform operation
+user = session.get(Users.class,8);   8 user_id li kaydı getir diyoruz
+//commit the transaction
+session.getTransation().commit();
+sout(user);
+
+Bu haliyle çalıştırdık
+
+CRUD Update REcord:
+
+try{
+//Create object of entity class type
+Users user = new Users();
+//start transaction
+session.beginTransaction();
+//perform operation
+user = session.get(Users.class,8);   8 user_id li kaydı update edeceğiz
+//updating object
+user.setUsername("admin@studyeasy.org");
+//commit the transaction
+session.getTransation().commit();
+sout(user);
+
+CRUD Delete REcord:
+
+try{
+//Create object of entity class type
+Users user = new Users();
+//start transaction
+session.beginTransaction();
+//perform operation
+user = session.get(Users.class,8);   8 user_id li kaydı delete edeceğiz
+//Delete record with user id 8
+user.delete(user);
+//commit the transaction
+session.getTransation().commit();
+sout(user);
+
+Section30-Project-files+(1).zip indirildi
+
+Hibernate Query Language Basics: HQL
+Listing records
+
+try{
+//start transaction
+session.beginTransaction();
+
+List<Users> users = session.createQuery("from users").getResultList();
+
+for(Users temp:users) {
+sout(temp);
+}
+
+//commit the transaction
+//session.getTransation().commit();  bu optional olduğu için kapattıt
+çalışması için Entity(name="users") dedik
+
+HQL Where clause:
+firstname Salim olanı alalım
+try{
+//start transaction
+session.beginTransaction();
+
+List<Users> users = session.createQuery("from users where firstName ='salim'"
++ "OR last_name='payne'")
+	.getResultList();
+//first_name dersek salim olarak döner firstName dersek Salim olarak döner
+for(Users temp:users) {
+sout(temp);
+}
+
+//commit the transaction
+//session.getTransation().commit();  bu optional olduğu için kapattıt
+çalışması için Entity(name="users") dedik
+
+LIKE kullanmak istersek 
+
+try{
+//start transaction
+session.beginTransaction();
+
+List<Users> users = session.createQuery("from users where firstName ='salim'"
++ "OR last_name like '%a%n%'")
+	.getResultList();
+//first_name dersek salim olarak döner firstName dersek Salim olarak döner
+for(Users temp:users) {
+sout(temp);
+}
+
+Update Records with HQL:
+
+try{
+session.beginTransaction();
+session.createQuery("update users set password = 'passwordVidya' "
++ "where first_name='vidya'")
+.executeUpdate();
+	session.getTransaction().commit();
+}
+
+
+Delete Record Using HQL:
+
+try{
+session.beginTransaction();
+session.createQuery("delete from users where user_id =5")
+.executeUpdate();
+	session.getTransaction().commit();
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
