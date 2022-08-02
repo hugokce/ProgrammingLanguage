@@ -2825,7 +2825,153 @@ session.createQuery("delete from users where user_id =5")
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.udemy.com/course/beginner-coding-projects-in-python-javascript-java/learn/lecture/19970148?start=0#overview
+2 saat
 
+python javascript java kod anlatımı var
+atom kurulum yapıldı
+virtual env kurmak istersek
+sudo pip install virtualenv 
+pip install virtualenv
+ad vermek için virualenv NameofVirtualEnv
+virtualenv myenv
+Bunu project adını verdiğimiz klasör altında oluşturdu.
+myenv /bin/activate
+myenv\scripts\activate kodları ile activate ediyoruz envleri
+
+Convert Text to Speech with Python
+google Text to Speech API gTTS 
+pip install gTTS diyelim
+
+Şimdi kodları yazalım
+texttospeech.py adlı dosya oluşturduk
+
+from gtts import gTTS
+import os
+
+myText = "Don't judge each day by the harvest you reap, but by the seeds that you plant."
+
+language='en'
+
+output = gTTS(text=myText,lang=language,slow=False)
+
+output.save("output.mp3")
+
+os.system("start output.mp3")
+
+şimdi çalıştıralım
+txttospeech.py
+
+JavaScript Project
+sublimetext kullanıyor
+
+MyCalculator klasörü oluşturduk
+index.html ve mystyle.css dosyaları var
+
+index.html oluşturmaya başlayalım
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Javascript calculator"/>	
+	<meta name="viewport" content="width=device-width,
+	initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="mystyle.css">	
+
+	<title>Calculator</title>
+		
+	</head>
+
+	<body >
+	<h1>Basic Calculator </h1>
+	<br/>
+	<form id="myform" Name="calc">
+	<input name="display"> style="width:675px;height:100px;text-align;
+	center;background-color:#1f80c9;"> <br/>
+	<input type=button value="0" OnClick="calc.display.value+='0'">
+	<input type=button value="1" OnClick="calc.display.value+='1'">
+	<input type=button value="2" OnClick="calc.display.value+='2'">
+	<input type=button value="+" OnClick="calc.display.value+='+'"
+	style="background-color:#cc5c11;"> <br/>
+	<input type=button value="3" OnClick="calc.display.value+='3'">
+	<input type=button value="4" OnClick="calc.display.value+='4'">
+	<input type=button value="5" OnClick="calc.display.value+='5'">
+	<input type=button value="-" OnClick="calc.display.value+='-'" style="background-color:#ba55d3;"> <br/>
+	<input type=button value="6" OnClick="calc.display.value+='6'">
+	<input type=button value="7" OnClick="calc.display.value+='7'">
+	<input type=button value="8" OnClick="calc.display.value+='8'">
+	<input type=button value="x" OnClick="calc.display.value+='*'" style="background-color:#7db1b2;"> <br/>
+	<input type=button value="9" OnClick="calc.display.value+='9'">
+	<input type=button value="C" OnClick="calc.display.value=''" style="background-color:#cc0000;">
+	<input type=button value="=" OnClick="calc.display.value=eval(calc.display.value)">
+	<input type=button value="&#247;" OnClick="calc.display.value+='/'" 
+	style="background-color:green;">
+	</form>
+
+	</body>
+</html>
+
+Apply CSS:
+şimdi mystyle.css dosyasını oluşturalım
+input {
+width:150px;
+height:100px;
+font-size:75px;
+border-radius:10px;
+margin:10px;
+background-color:#000;
+color:#fff;
+border-style:none;
+}
+
+#myform {
+
+margin-left:225px;
+margin-top:20px;
+}
+
+h1{
+text-align:center;
+font-size:80px;
+margin-right:150px;
+margin-top:20px;
+}
+
+Add functionality with Javascript
+display property, onclick event ve eval() function,
+Assignment operator += kullanacağız
+x+=y x=x+y
+
+Şimdi Java tarafına geçelim
+Netbeans ile ilerliyoruz
+TempConverter adında project oluşturduk
+
+public class Tconverter extends javax.swing.JFrame {
+public Tconverter(){
+initComponents();
+}
+}
+
+
+Ekranlardaki JFrame üezrinden ilerliyoruz
+title verdik My Temperature Converter
+textfield tempTextField, label1 Celsius , 
+button Convert,    label2 Fahrenheit, 
+ekledik
+Convert üstüne geldik events -->  action --> actionPerformed dedik 
+private void ConvertActionPerformed() {
+int tempFahr=(int) ((Double.parseDouble(tempTextField.getText()))
+*1.8+32);
+Fahrenheit.setText(tempFahr+" Fahrenheit");
+}  bunun içine yazalım mantığımızı
+
+12 C için 53 dedi
+build dedikten sonra cmdden
+java -jar "c:users\..\TempConverter.jar" deyip çalıştırdık
+20 C için 68 geldi
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
