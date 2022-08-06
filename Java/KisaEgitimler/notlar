@@ -3717,6 +3717,198 @@ https://github.com/kanastasov/Introduction-to-programming-with-Java---Free-cours
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
+https://www.udemy.com/course/java-tutorial-for-beginners-m/learn/lecture/19596642?start=0#overview
+2 saat
+eclipse ile çalışıyor
+proje oluşturduk sonra package oluşturduk
+class ile başladık
+float a = 12.74f;
+boolean logit = true;
+---------------------
+boolean a=true;
+boolean b=false;
+sout(a&b);  false üretir  and
+sout(a | b); true üretir
+----------------------
+int number=-13;
+if(number>0){
+sout("Positive");
+} else if (number<0){
+sout("Negative");
+} else {
+sout("Zero");
+}
+-----------------
+int x=1;
+while (x<=4)
+{
+sout(x);
+x++;
+}
+
+
+for(int i=0;i<5;i++){
+sout(i);
+}
+
+for(int i=0;i<=10;i=i+2){
+sout(i);
+}
+
+
+int n=5;
+for (int i=0;i<n;i++)
+{
+for(int j=0;j<=i;j++){
+sout("*");
+}
+sout();
+}
+--------------------
+Fonksiyonlar:
+
+public static void sparta() {   
+sout("this is sparta");
+}
+void verdik birşey döndürmez çağrıldığında döndürecek
+üstte main içinde sparta(); denince this is sparta döner
+
+public static void add(int num1,int num2) {
+sout(num1+num2);
+}
+main içinde add(); çağrıldığında değer döndürür
+int a=10;
+int b=20;
+add(a,b);  30 döner
+------------------------
+Değer döndüren fonksiyonlar
+main içinde
+TestProject obj = new TestProject();
+int x=10;
+int y=20;
+int get_result=obj.add(x,y);
+sout(get_result);
+
+main } kapanışı sonrası
+public int add(int num1, int num2){
+int result = num1+num2;
+return result;
+}
+-------------------------
+swapping values
+public static void swapFunction(int a,int b){
+sout("Before swapping , a= "+a+" b = "+b);
+int c =a;
+a=b;
+b=c;
+sout("After swapping , a= "+a+" b = "+b)
+}
+
+sonra main içinde 
+int x=10;
+int y=20;
+swapFunction(x,y); olarak çalıştırırız
+--------------------------
+Method Overloading: aynı isimli fonksiyon farklı parametre farklı return types
+public static int area(int n1,int n2){
+int result = n1*n2;
+return result;
+}
+
+public static float area(int n){
+float result = 3.14f*n*n;
+return result;
+}
+
+şimdi main içinde çalıştıralım
+
+int x=10;
+int y=20;
+int r=5;
+
+TestProject obj = new TestObject();
+float area_circle=obj.area(r);
+
+int area_rectangle=obj.area(x,y);
+sout(area_circle);
+
+sout(area_rectangle);
+
+------------------------
+Arrays:
+Arrayler aynı data tipinde çoklu eleman saklamamızı sağlar 
+char[] a =new char[5];
+a[0]='a';
+a[1]='b';
+a[2]='c';
+a[3]='d';
+a[4]='e';
+
+for (int i=0;i<5;i++){
+sout(a[i]);
+}
+
+---------------------
+int[] a = new int[10];
+for(int i=0;i<5;i++){
+a[i]=i;
+}
+
+for(int i=0;i<5;i++){
+sout(a[i]);
+}
+
+----------------------
+int a[]=new int[5];
+int b[]=new int[5];
+int c[]=new int[5];
+
+int num=5;
+
+for(int i=0;i<5;i++){
+a[i]=i;
+}
+
+for(int i=0;i<5;i++){
+b[i]=num;
+num++;
+}
+
+sout(Values of Array A);
+for(int i=0;i<5;i++){
+sout(a[i]+" ");
+}
+
+sout(Values of Array B);
+for(int i=0;i<5;i++){
+sout(b[i]+" ");
+}
+
+for(int i=0;i<5;i++){
+c[i]=a[i]+b[i];
+}
+sout(Value of Array C);
+for(int i=0;i<5;i++){
+sout(c[i]+" ");
+}
+
+------------------------
+Multidimensional Array:
+int[][] a =new int[3][3];
+int num=1;
+
+for(int i=0;i<3;i++){
+	for(int j=0;j<3;j++){
+	a[i][j]=num;
+	++num;
+} }
+--------------------------
+for(int i=0;i<3;i++){
+	for(int j=0;j<3;j++){
+	sout(a[i][j]+" ");
+} 
+sout(" ");
+}
 
 
 
