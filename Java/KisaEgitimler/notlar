@@ -2973,6 +2973,810 @@ java -jar "c:users\..\TempConverter.jar" deyip çalıştırdık
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.udemy.com/course/introduction-to-programming-with-java/learn/lecture/8086886?start=0#overview
+2 saat
+
+Scanner input = new Scanner(System.in);
+radius= input.nextDouble();
+
+int firstVariable=  input.nextInt();
+int secondVariable= input.nextInt();
+int thirdVariable=  input.nextInt();
+
+int averageVariable= (firstVariable+secondVariable+thirdVariable)/3
+
+primitive data types:
+LISTING+4.pdf indirildi
+
+public class FahrenheitToCelsius{
+psvm{
+Scanner input = new Scanner(System.in);
+double fahrenheit =input.nextDouble();
+//celsius = (5.0/9)*(fahrenheit-32);
+double celsius = (5.0/9)*(fahrenheit-32);
+sout(celsius);
+} }
+
+public class PoundsIntoKilograms {
+java.util.Scanner input = new java.util.Scanner(System.in);
+double pounds = input.nextDouble();
+double kilograms = (pounds*0.454);
+System.out.println("Your pounds :"+pounds+" = "+kilograms);
+}
+
+
+area = radius * radius * π
+volume = area * length
+
+π = 3,1416
+
+Here is a sample run:
+
+Enter the radius of a cylinder: 8
+Enter the length of a cylinder: 12
+The area is 201.06192982976
+The volume is 2412.7431579571203
+
+-----------------------------
+
+public class VolumeOfCylinder {
+java.util.Scanner input = new java.util.Scanner(System.in);
+double radius = input.nextDouble();
+double length = input.nextDouble();
+//π = 3,1416
+//area = radius * radius * π
+//volume = area * length
+double pi = 3.1416
+double area = (radius * radius * pi);
+double volume = (area * length);
+System.out.println("Enter the radius of a cylinder :"+radius);
+System.out.println("Enter the length of a cylinder :"+length);
+System.out.println("The area is "+area);
+System.out.println("The volume is "+volume);
+
+-----------------------------
+
+Scanner input = new Scanner(System.in);
+sout("Please enter a + or -");
+String sign = input.nextLine();
+int firstValue = input.nextInt();
+int secondValue = input.nextInt();
+if(sign.equals("+")){
+sout( firstValue + secondValue);
+}else if (sign.equals("-")) {
+sout( firstValue - secondValue);
+} else {
+sout("Incorrect sign")
+}
+
+----------------------------------
+switch {
+
+int month = input.nextInt();
+String monthString;
+
+switch(month) {
+case 1:
+monthString ="January";
+break;
+
+case 2:
+monthString ="February";
+break;
+
+case 3:
+monthString ="March";
+break;
+
+case 4:
+monthString ="April";
+break;
+
+case 5:
+monthString ="May";
+break;
+
+case 6:
+monthString ="June";
+break;
+case 7:
+monthString ="July";
+break;
+
+case 8:
+monthString ="August";
+break;
+
+case 9:
+monthString ="September";
+break;
+case 10:
+monthString ="October";
+break;
+
+case 11:
+monthString ="November";
+break;
+
+case 12:
+monthString ="December";
+break;
+
+default:
+monthString ="Invalid data, expected data is between "1-12";
+break;
+}
+sout(monthString);
+
+-----------------------------------
+
+Methodlar:
+public class MaxValues{
+psvm{
+int firstValue=5;
+int secondValue=8;
+int result = maxValue(firstValue,secondValue);
+sout("The max value: "+result);
+}
+public static int maxValue(int firstParam, int secondParam){
+int result
+if(firstParam>secondParam){
+result = firstParam;
+} else {
+result = secondParam;
+} 
+return result;
+ } }
+
+Bunu void olarak çevirip returnleri kaldırabiliriz
+
+public class MaxValues{
+psvm{
+int firstValue=5;
+int secondValue=8;
+maxValue(firstValue,secondValue);
+
+}
+public static void maxValue(int firstParam, int secondParam){
+int result
+if(firstParam>secondParam){
+result = firstParam;
+} else {
+result = secondParam;
+} 
+sout("The max value: "+result);
+ } }
+
+bu halde de çalışıyor
+
+-----------------------
+Şimdi override işlemine bakalım
+
+public class MaxValues{
+psvm{
+int firstValue=5;
+int secondValue=8;
+int result = maxValue(firstValue,secondValue);
+
+double firstValueDouble=66.6;
+double secondValueDouble = 44.4;
+
+double resultDouble = maxValue(firstValueDouble,secondValueDouble);
+sout("The max in double is :"+resultDouble);
+
+}
+
+public static int maxValue(int firstParam, int secondParam){
+int result
+if(firstParam>secondParam){
+result = firstParam;
+} else {
+result = secondParam;
+} 
+return result;
+ } 
+
+public static double maxValue(double firstParam, double secondParam){
+double result
+if(firstParam>secondParam){
+result = firstParam;
+} else {
+result = secondParam;
+} 
+return result;
+ }
+}
+
+---------------------------------
+Arrayler
+public class BasicArrays{
+psvm {
+//elementType arrayRefVar[] = new elementType[arraySize];
+
+//double[] myList = new double[10];
+double[] myList = {1.8, 2.9, 3.4, 4.6, 2.1};
+
+//alttaki metodu çağıralım şimdi
+printArraysValues(myList);
+//ikinci metodu da çağıralım
+symArrayValues(myList);
+//üçüncü metodu çağıralım
+maxInArray(myList);
+}
+
+private static void printArraysValues(double[] myList) {
+for (int i=0;i<myList.length;i++) {
+sout(myList[i]);
+}
+}
+
+private static void symArrayValues(double[] myList ) {
+double sum = 0;
+for (int i=0;i<myList.length;i++) {
+sum+=myList[i];
+}
+sout(sum);
+}
+
+//şimdi en büyük değeri alan metodu yazalım
+private static void maxInArray(double[] myList) {
+double temp=0;
+for(double value:myList){
+if(value>temp) {
+temp=value;
+}
+}
+sout("max value"+ temp );
+} }
+
+-----------------------------
+Multidimensional Arrays:
+
+public class BasicArrays{
+psvm {
+//elementType arrayRefVar[] = new elementType[arraySize];
+
+//double[] myList = new double[10];
+double[] myList = {1.8, 2.9, 3.4, 4.6, 2.1};
+
+
+maxInArray(myList);
+
+//elementType[][] arrayRefVar;
+//double [][] myMultiList = new double[5][5];
+double [][] myMultiList ={
+{1,2.3,3.5},
+{4.4,5,6},
+{7,8.2,9},
+{10.10,11,12}
+};
+
+printArraysValues(myMultiList);
+symArrayValues(myMultiList);
+
+}
+
+private static void printArraysValues(double[][] myList) {
+//çok boyutlu olduğu için ikinci bir nested loopa ihtiyaç var
+for (int i=0;i<myList.length;i++) {
+	for(int j=0;j<myList[i].length,j++)
+	sout(myList[i][j]);
+}
+}
+
+
+private static void symArrayValues(double[][] myList ) {
+//yine j için nested loop ekleriz
+double sum = 0;
+for (int i=0;i<myList.length;i++) {
+	for(int j=0;j<myList[i].length,j++){
+		sum+=myList[i][j];
+}
+}
+sout(sum);
+}
+}
+
+-------------------------------
+Objects:
+public class Circle {
+
+public double radius;
+
+public Circle(){
+radius=2  // değer verilmezse 2 alacak
+}
+
+public Circle(double radius){
+this.radius=radius;
+}
+
+//içinde double radius vardı parametre sormasın diye sildik
+public double getArea(){
+double area = radius * radius - Math.PI;
+return area;
+}
+}
+
+Yeni class oluşturalım
+
+public class TestCircle {
+psvm{
+Circle circle1 = new Circle();
+
+sout("The radius is:"+circle1.radius + "the area is: "+circle1.getArea());
+
+Circle circle1 = new Circle(5);
+
+sout("The radius is:"+circle2.radius + "the area is: "+circle2.getArea());
+
+}}
+
+Şimdi aynı paketin kopyasını alıp revize edelim
+
+public class Rick {
+
+public Boolean isDrinking;
+public Boolean isNeggingJery;
+public Boolean isOnAdventure;
+
+public Rick(){
+isDrinking=true;
+isNeggingJery=true;
+isOnAdventure=false;
+}
+
+public Rick(Boolean isDrinking, Boolean isNeggingJery,Boolean isOnAdventure ){
+this.isDrinking=isDrinking;
+this.isNeggingJery=isNeggingJery;
+this.isOnAdventure=isOnAdventure;
+}
+//getter setter ekleyelim
+
+
+public Boolean getIsDrinking(){
+return isDrinking;
+}
+
+public void setIsDrinking(Boolean isDrinking){
+this.isDrinking=isDrinking;
+}
+
+public Boolean getIsNeggingJery(){
+return isNeggingJery;
+}
+
+public void setIsNeggingJery(Boolean isNeggingJery){
+this.isNeggingJery=isNeggingJery;
+}
+
+
+public Boolean getIsOnAdventure(){
+return isOnAdventure;
+}
+
+public void setIsOnAdventure(Boolean isOnAdventure){
+this.isOnAdventure=isOnAdventure;
+}
+
+@Override
+public String toString(){
+return "Rick [isDrinking=" + isDrinking + ", isNeggingJery=" + isNeggingJery + ", isOnAdventure=" + isOnAdventure + "]";
+}
+
+}
+
+Yeni class oluşturalım
+
+public class TestRick {
+psvm{
+Rick rick1 = new Rick();
+sout("rick1:"+ rick1.toString());
+
+Rick rick2 = new Rick(true,true,true);
+sout("rick2:"+ rick2.toString());
+}}
+
+
+-----------------------------------------
+TExt Input and Output:
+public class ReadFromFile {
+psvm {
+File file = new File("c:\\user\output.txt");
+Scanner input = new Scanner(file);
+
+while(input.hasNext()){
+String temp = input.next();
+
+sout(temp);
+
+}
+
+input.close();
+
+}
+}
+
+
+yeni class oluşturalım
+public class WriteIntoFile {
+psvm{
+File file = new File ("c:\\user\output.txt");
+if(file.exists()) {
+System.exit(0);
+}
+
+PrintWriter output = new PrintWriter(file);
+
+output.print("Winter is coming");
+output.print("John snow is king");
+output.print("John snow slept");
+output.print("John snow woke up");
+
+output.close();
+
+}
+} bunun  çıktısında txt dosyasına bu değerleri yazdırdık
+
+----------------------------------
+Inheritance:
+public class Animals {
+private String walk;
+private String eat;
+private String cuddle;
+//getting constructor using Fields ile oluşturalım
+public Animals(){
+}
+
+public Animals(String walk, String eat, String cuddle){
+super();
+this.walk=walk;
+this.eat=eat;
+this.cuddle=cuddle;
+
+}
+
+getter setter dedik
+
+}
+
+yeni bir class oluşturduk
+public class Dog extends Animals{
+private String barking;
+
+public Dogs(){
+super();
+}
+
+public Dogs(String barking){
+this.barking=barking;
+
+}
+
+
+//generate constructor deyip alttakini oluşturduk ve barking ekledik
+public Dogs(String barking,String walk,String eat, String cuddle){
+super(walk,eat,cuddle);
+setWalk(walk);
+setEat(eat);
+setCuddle(cuddle);
+}
+
+//barking ile getter setter oluşturalım
+public String getBarking(){
+return barking;
+}
+
+public void setBarking(String barking){
+this.barking=barking;
+}
+
+//generate toString yapalım
+@Override
+public String toString(){
+return "Dogs [barking=" +barking + ",getWalk()="+getWalk()+ ", getEat()="+getEat() +", getCuddle()="+getCuddle()+"]"; 
+}
+
+//şimdi cats diye class oluşturalım
+public class Cats extends Animals{
+private String mial;
+
+public Cats(){
+super();
+}
+
+public Cats(String barking){
+this.mial=mial;
+
+}
+public Cats(String barking,String walk,String eat, String cuddle){
+super(walk,eat,cuddle);
+setWalk(walk);
+setEat(eat);
+setCuddle(cuddle);
+}
+
+
+//getter setter ekleyelim
+public String getMial(){
+return mial;
+}
+
+public void setMial(String mial){
+this.mial=mial;
+}
+
+//generate toString yapalım
+@Override
+public String toString(){
+return "Cats [mial=" +mial + ",getWalk()="+getWalk()+ ", getEat()="+getEat() +", getCuddle()="+getCuddle()+"]"; 
+}
+
+}
+
+
+Şimdi yeni bir TestAnimal class oluşturalım
+
+public class TestAnimals{
+psvm{
+Dogs germanShepart= new Dogs();
+germanShepart.setBarking("Barking");
+germanShepart.setCuddle("Cudling");
+germanShepart.setEat("Give me Food");
+germanShepart.setWalk("Running");
+
+sout(germanShepart.toString());
+
+
+Dogs smallDog = new Dogs();
+smallDog.setBarking("Too small to bark");
+
+sout(smallDog.toString());
+
+//şimdi kedi örneği yapalım
+Cats littleKitty = new Cats();
+littleKitty.setMial("Miaaal");
+
+sout(littleKitty.toString());
+
+} }
+
+-------------------------
+Polimorphism:
+
+TestAnimals classında littleKitty.setMial("Miaaal"); 
+kodu } kapanışından sonra ekleyelim
+displayAnimals(littleKitty);
+displayAnimals(smallDog);
+
+Dogs doggoArjantino = new Dogs();
+doggoArjantino.setBarking("Big bark");
+doggoArjantino.setEat("Give me a lot of food");
+displayAnimals(doggoArjantino);
+
+
+private static void displayAnimals(Animals animalObs){
+sout(animalObj.toString());
+
+}
+
+---------------------------
+Abstract Class:
+
+Animals class içinde önce başta public class Animals içine
+abstract ekledi public abstract class Animals oldu
+
+sonra en sona
+public abstract String animalsDescription(); ekledik
+
+Cat class içine gelip unimplemented method ekletti
+
+@Override 
+public String animalsDescription(){
+return "Find boxes to fit in";
+}
+
+yazdık en sona
+sonra toString deyip animalDescription() seçtik
+@Override 
+public String toString(){
+return "Cats [mial="+ mial + ", animalsDescription()=" + animalDescription() +"]";
+}
+
+Dogsa gelip unimplemented dedik yine class üstüne gelip
+sonra en altta alttaki kod gelid
+@Override 
+public String animalsDescription(){
+return "Protect the house";
+}
+
+@Override 
+public String toString(){
+return "Dogs [barking="+ barking + ", animalsDescription()=" + animalDescription() +"]";
+}
+
+--------------------
+Interface:
+public class TestJuicy{
+psvm{
+Object[] objectFruits = {new Apples(), new Bananas()}
+
+for(int i=0; i<objectFruits.length;i++){
+if(objectFruits[i]=instanceof Juicy) {
+sout((((Juicy)objectsFruits[i]).makeFresh()));
+
+}}}}
+
+Şimdi Interface oluşturalım
+
+public interface Juicy{
+public abstract String makeFresh();
+
+}
+
+Şimdi Oranges adlı class oluşturalım
+
+public class Oranges implements Juicy {
+@Override 
+public String makeFresh() {
+return "Oranges are good for fress";
+}
+}
+
+Aynı classı kopyalayıp Lemon, Grapefruit, Apple dedik
+
+public class Apples{
+String description = "Apples are healthy";
+
+@Override
+public String toString(){
+return "Apples [description="+ description + "]";
+}
+
+}
+
+Apple kopyalayıp Bananas oluşturduk
+
+Şimdi TestJuicy classı oluşturalım
+bu en üstteki classtır
+çalıştırınca her classta yazan değeri bastı.
+
+------------------------
+Exceptions:
+
+public class ReadFromFileWithFinally {
+psvm {
+PrintWriter output = null;
+
+try {
+output = new PrintWriter("C:\users\output.txt");
+output.println("Winter is coming");
+} catch(IOException ex){
+sout(ex);
+} finally{
+if(output!=null){
+output.close();
+}
+
+}
+sout("Finish");
+
+}
+}
+
+-----------------------
+Exception part2 
+public class ArithmeticDivision {
+psvm{
+Scanner input = new Scanner(System.in);
+
+sout("Enter 2 integer");
+
+int firstNumber =input.nextInt();
+int SecondNumber = input.nextInt();
+
+try {
+int result=resultInteger(firstNumber, secondNumber);
+sout("first / second= "+result);
+} catch(ArithmeticException ex) {
+sout(ex);
+}
+
+}
+public static int resultInteger(int firstNumber, int secondNumber){
+if(secondNumber==0) {
+throw new ArithmeticException("The second can not be zero: ");
+}
+return firstNumber/secondNumber;
+}
+}
+
+
+-----------------------
+Exception part3
+public class ReadFromFileWithFinally {
+psvm {
+PrinterWriter output = null;
+
+try {
+output = new PrintWriter("c:\users\output.txt")
+output.println("Winter is coming");
+}catch(IOException ){
+sout(ex);
+}finally{
+if(output!=null){
+output.close();
+}
+}
+sout("Finish");
+}
+}
+
+eğitim kodları buradan alınabilir
+https://github.com/kanastasov/Introduction-to-programming-with-Java---Free-course
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
