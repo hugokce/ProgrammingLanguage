@@ -4064,10 +4064,642 @@ sout("%n Class average is %d %n",average);
 }
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
+https://www.udemy.com/course/programming-network-applications-in-java/learn/lecture/13927538?start=0#overview
+2 saat
+
+eclipse kullanıyor
+network app oluşturacağız
+
+Simple TCP Program (Server):
+Server.java.zip dosyası indirildi
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.io.BufferedReader;
+
+public class Server {
+public Server() throws Exception {
+ServerSocket server_socket = new ServerSocket(2020); //opening a new port
+sout("Port 2020 is open");
+
+Socket socket = server_socket.accept();
+sout("Client "+socket.getInetAddress()+ " has connected.");
+
+//IO Buffers:
+BufferedReader in_socket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+PrintWriter out_socket = new PrintWriter(new OutputStreamWriter (socket.getOutputStream()),true);  //flush kısmı için true diyoruz
+//çünkü mesajımız çok kısa thanks sadece
+out_socket.println("Welcome");  //Send Welcome to  the Client
+String message = in_socket.readLine();  //receive thanks kısmı
+sout("Client says: "+message);  //display Clients message in the console
+
+socket.close();
+sout("Socket is closed");
+}
 
 
 
+psvm{
+try {
+new Server();
+} catch(Exception e) {
+e.printStackTrace();
 
+}
+
+}
+
+}
+-------------------------
+Simple TCP Program (Client):
+Client.java.zip dosyası indirildi
+Yeni Class oluşturduk Client isimli
+CTRL+SHIFT O dedik alttaki kütüphaneler geldi
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+public class Client {
+
+public Client() throws Exception {
+Socket socket = new Socket("localhost",2020);
+sout("Successful connection to the server");
+
+//IO stream
+BufferedReader in_socket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+PrintWriter out_socket = new PrintWriter(new OutputStreamWriter (socket.getOutputStream()),true);
+
+String message = in_socket.readLine();
+sout("Server says: "+message);
+out_socket.println("Thanks");
+
+socket.close();
+sout("Socket closed");
+}
+
+psvm{
+try {
+new Client();
+} catch(Exception e) {
+e.printStackTrace();
+
+}
+}
+}
+
+---------------------------
+Advanced Simple TSP Program:
+simple_tcp_2.zip indirildi
+Yeni paket oluşturuyoruz önceki server ve client classlarını
+kopyalayalım
+
+Client ile değişikliğe başlayalım
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+public class Client {
+
+public Client() throws Exception {
+Socket socket = new Socket("localhost",2020);
+sout("Successful connection to the server");
+
+//IO stream
+BufferedReader in_socket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+PrintWriter out_socket = new PrintWriter(new OutputStreamWriter (socket.getOutputStream()),true);
+Scanner keyboard = new Scanner(System.in);
+
+
+String message = in_socket.readLine();
+sout("Server says: "+message);
+sout("SAy something to the server: ");
+message = keyboard.nextLine();  //user is prompted to type a message for the server
+out_socket.println(message);
+
+socket.close();
+sout("Socket closed");
+}
+
+psvm{
+try {
+new Client();
+} catch(Exception e) {
+e.printStackTrace();
+
+}
+}
+}
+
+--------------tekrar değiştirelim clienti
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+public class Client {
+
+public Client() throws Exception {
+Socket socket = new Socket("localhost",2020);
+sout("Successful connection to the server");
+
+//IO stream
+BufferedReader in_socket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+PrintWriter out_socket = new PrintWriter(new OutputStreamWriter (socket.getOutputStream()),true);
+Scanner keyboard = new Scanner(System.in);
+String message ;
+// eski kodlara ihtiyaç olmadığı için sildik
+socket.close();
+sout("Socket closed");
+}
+
+psvm{
+try {
+new Client();
+} catch(Exception e) {
+e.printStackTrace();
+
+}
+}
+}
+
+şimdi server tarafı kodlarına bakalım
+
+Server.java.zip dosyası indirildi
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.io.BufferedReader;
+
+public class Server {
+public Server() throws Exception {
+ServerSocket server_socket = new ServerSocket(2020); //opening a new port
+sout("Port 2020 is open");
+
+Socket socket = server_socket.accept();
+sout("Client "+socket.getInetAddress()+ " has connected.");
+
+//IO Buffers:
+BufferedReader in_socket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+PrintWriter out_socket = new PrintWriter(new OutputStreamWriter (socket.getOutputStream()),true);  //flush kısmı için true diyoruz
+//random number generate edelim
+String message;
+int secret_number = (int)(Math.random()*10+1);
+
+do{
+out_socket.println("Guess a number [1-10]: ");
+message = in_socket.readLine();
+} while(!(Integer.parseInt(message)==secret_number));
+
+out_socket.println("You got it!!");
+sout("Secret number is out. Exiting the app")
+
+socket.close();
+sout("Socket is closed");
+}
+
+
+
+psvm{
+try {
+new Server();
+} catch(Exception e) {
+e.printStackTrace();
+
+}
+
+}
+
+}
+
+Şimdi Clienta gidip değişiklik yapalım yine
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+public class Client {
+
+public Client() throws Exception {
+Socket socket = new Socket("localhost",2020);
+sout("Successful connection to the server");
+
+//IO stream
+BufferedReader in_socket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+PrintWriter out_socket = new PrintWriter(new OutputStreamWriter (socket.getOutputStream()),true);
+Scanner keyboard = new Scanner(System.in);
+String user_number ;
+
+while((in_socket.readLine()).startsWith("Guess")){
+sout("Server says: Guess a number [1-10].");
+user_number = keyboard.nextLine();
+out_socket.println(user_number);
+}
+
+sout("You got it!!");
+
+socket.close();
+sout("Socket closed");
+}
+
+psvm{
+try {
+new Client();
+} catch(Exception e) {
+e.printStackTrace();
+
+}
+}
+}
+
+--------------------------
+Wireshark Analysis:
+cmd açtık IPv4ü aldık 10.0.2.15
+Client kodunda localhost yerine bu ipyi yazdık
+Sonra wireshark açtık
+Server kodunu çalıştırdık Client kodunu çalıştırdık
+Wiresharktan izlemeye başladık artık
+Welcome!\n kodu geldi 10byte
+Clientin dönüşüne baktık Thanks!\n geldi o da 9byte 
+---------------------
+
+Multithreading:
+Multi-thread+ppt.pdf ve simple_tcp_multithread.zip indirildi
+2 class oluşturduk ServerMain ve ServerThread diye.
+Client kodlarını da kopyaladık
+
+Önce ServerMain yazalım
+
+import java.net.ServerSocket;
+
+public class ServerMain{
+
+public ServerMain() throws Exception {
+ServerSocket server_socket = new ServerSocket(2020);
+sout("Port 2020 is now open");
+
+//infinite while loop wait for new connection
+while(true){
+Socket socket = server_socket.accept();
+ServerThread server_thread = new ServerThread(socket);
+Thread thread = new Thread(server_thread);
+thread.start();
+}
+
+}
+
+
+psvm{
+try{
+new ServerMain();
+} catch (Exception e){
+e.printStackTrace();
+}
+}
+}
+
+şimdi ServerThread classının kodlarını yazalım
+public class ServerThread implements Runnable{
+private Socket socket;
+public ServerThread (Socket socket) {
+this.socket= socket;
+}
+
+@Override
+public void run() {
+try{
+
+sout("Client has connected");
+
+//IO buffers:
+BufferedReader in_socket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+PrintWriter out_socket = new PrintWriter(new OutputStreamWriter (socket.getOutputStream()),true);
+
+out_socket.println("Welcome! What's your name?"); //send welcome to client
+String message = in_socket.readLine();  //receive thanks
+sout("Client says: "+message);
+
+socket.close();
+sout("Socket is closed");
+
+} catch (Exception e){
+e.printStackTrace();
+}
+
+}
+}
+
+Şimdi clientı düzenleyelim sayı tahmin etmeyecek çünkü
+
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+public class Client {
+
+public Client() throws Exception {
+Socket socket = new Socket("localhost",2020);
+sout("Successful connection to the server");
+
+//IO stream
+BufferedReader in_socket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+PrintWriter out_socket = new PrintWriter(new OutputStreamWriter (socket.getOutputStream()),true);
+Scanner keyboard = new Scanner(System.in);
+
+String message=in_socket.readLine();
+sout("Server says: "+message);
+message = keyboard.nextLine();
+out_socket.println(message);
+
+socket.close();
+sout("Socket closed");
+}
+
+psvm{
+try {
+new Client();
+} catch(Exception e) {
+e.printStackTrace();
+
+}
+}
+}
+
+Şimdi çalıştıralım
+ServerMain -->  Client çalıştırdık
+Client2 ve Client3 çalıştırdık
+isimler sordu yazdık
+
+------------------------------
+Advancing Multithreading TCP Program:
+
+clientı ne kadar çalıştırırsak Client has connected yazıyor
+KAç client bağlandı saymak istersek
+ServerMaini biraz değiştirelim o zaman
+
+import java.net.ServerSocket;
+
+public class ServerMain{
+
+public ServerMain() throws Exception {
+
+ServerSocket server_socket = new ServerSocket(2020);
+sout("Port 2020 is now open");
+
+//infinite while loop wait for new connection
+while(true){
+Socket socket = server_socket.accept();
+ServerThread server_thread = new ServerThread(socket,this); // client saysın diye bunu da ekledik
+Thread thread = new Thread(server_thread);
+thread.start();
+}
+
+}
+
+private int clientnumber=1;
+
+public int getClientNumber(){
+return clientnumber++;
+}  // her client çağrılışınca 1 artacak
+
+
+psvm{
+try{
+new ServerMain();
+} catch (Exception e){
+e.printStackTrace();
+}
+}
+}
+
+ServerThreadde de şu eklemeyi yapalım
+
+public class ServerThread implements Runnable{
+private Socket socket;
+private ServerMain server_main;
+public ServerThread (Socket socket, ServerMain server_main) {
+this.socket= socket;
+this.server_main=server_main;
+}
+
+@Override
+public void run() {
+try{
+
+int client_number = server_main.getClientNumber();
+
+sout("Client "+ client_number + ". has connected");
+
+//IO buffers:
+BufferedReader in_socket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+PrintWriter out_socket = new PrintWriter(new OutputStreamWriter (socket.getOutputStream()),true);
+
+out_socket.println("Welcome! You are client number "+ client_number + ". What's your name?"); //send welcome to client
+String message = in_socket.readLine();  //receive thanks
+sout("Client says: "+message);
+
+socket.close();
+sout("Client " + client_number + ". has disconnected");
+
+} catch (Exception e){
+e.printStackTrace();
+}
+
+}
+}
+
+
+çalıştırdığımızda client1 client2 connected der
+
+---------------------
+Bonus Example:
+Kodları var
+
+Bonus+Examples+-+TCP+Multithread.txt indirildi
+
+bonus_1a.zip, bonus_1b.zip, bonus_2a.zip, bonus_2b.zip indirildi
+
+--------------------
+
+UDP Sockets in Java:
+Simple UDP Program (Receiver):
+
+
+Yeni proje oluşturduk paket oluşturduk
+Receiver adlı class oluşturduk
+
+public class Receiver {
+public Receiver() throws Exception{
+DatagramSocket socket = new DatagramSocket(2020);
+sout("Receiver is running");
+Scanner keyboard = new Scanner(System.in);
+
+byte[] buffer = new byte[1500];  //MTU = 1500
+DatagramPacket packet = new DatagramPacket(buffer,buffer.length);
+
+socket.receive(packet);  //retreiving senders message
+
+String message = new String(buffer).trim();
+sout("Received: "+message);
+
+InetAddress senders_address = packet.getAddress();
+int senders_port = packet.getPort();
+
+sout("Enter your message");
+message = keyboard.nextLine();
+buffer = message.getBytes();
+packet = new DatagramPacket(buffer,buffer.length,senders_address,senders_port);
+socket.send(packet);
+
+sout("Sent: "+message);
+}
+
+psvm{
+try {
+new Receiver();
+}catch (Exception e){
+e.printStackTrace();
+}
+}
+}
+
+
+Şimdi de Sender programını yazalım
+
+Simple UDP Program (Sender):
+
+
+public class Sender{
+
+public Sender() throws Exception {
+
+DatagramSocket socket = new DatagramSocket();
+Scanner keyboard = new Scanner(System.in);
+
+sout("Enter your message");
+String message = keyboard.nextLine();
+byte[] buffer = message.getBytes();
+
+DatagramPacket packet = new DatagramPacket(buffer, buffer.length,InetAddress.getByName("127.0.0.1"),2020);
+
+socket.send(packet);
+sout("Sent: "+message);
+
+buffer = new byte[1500];
+packet = new DatagramPacket(buffer,buffer.length);
+socker.receive(packet);
+
+message = new String(buffer).trim();
+sout("Received: "+message);
+
+}
+
+psvm{
+try {
+new Sender();
+}catch (Exception e){
+e.printStackTrace();
+}
+}
+}
+
+
+Bundan sonra  açıklaması var
+
+
+Receiver değiştirelim
+
+public class Receiver {
+public Receiver() throws Exception{
+DatagramSocket socket = new DatagramSocket(2020);
+sout("Receiver is running");
+//Scannerı da siliyoruz
+//loop için while ekledik
+
+while(true){
+
+byte[] buffer = new byte[1500];  //MTU = 1500
+DatagramPacket packet = new DatagramPacket(buffer,buffer.length);
+
+socket.receive(packet);  //retreiving senders message
+
+String message = new String(buffer).trim();
+sout("Received: "+message);
+
+InetAddress senders_address = packet.getAddress();
+int senders_port = packet.getPort();
+
+//mesaj almıyoruz sürekli Ok göndereceğiz
+message = "Ok."
+buffer = message.getBytes();
+packet = new DatagramPacket(buffer,buffer.length,senders_address,senders_port);
+socket.send(packet);
+
+sout("Sent: "+message);
+}  //whileı burada kapatıyoruz
+}
+
+psvm{
+try {
+new Receiver();
+}catch (Exception e){
+e.printStackTrace();
+}
+}
+}
+
+Şimdi Sendera gidelim
+
+public class Sender{
+
+public Sender() throws Exception {
+
+DatagramSocket socket = new DatagramSocket();
+Scanner keyboard = new Scanner(System.in);
+// socket açmayı ve Scanner tanımlamayı 1 kez yapmak yeterli olduğu için while dışında bıraktık
+//while ekleyelim buraya
+while(true) {
+sout("Enter your message");
+String message = keyboard.nextLine();
+byte[] buffer = message.getBytes();
+
+DatagramPacket packet = new DatagramPacket(buffer, buffer.length,InetAddress.getByName("127.0.0.1"),2020);
+
+socket.send(packet);
+sout("Sent: "+message);
+
+buffer = new byte[1500];
+packet = new DatagramPacket(buffer,buffer.length);
+socker.receive(packet);
+
+message = new String(buffer).trim();
+sout("Received: "+message);
+
+} //while burada kapattık  içini de CTRL+SHIFT + F ile formatladık
+}
+
+psvm{
+try {
+new Sender();
+}catch (Exception e){
+e.printStackTrace();
+}
+}
+}
+
+Şimdi Receiver önce sonra sender sonra çalıştırdık
+hi yazdık bye yazdık receiver hep Ok yazdı
+
+Simple UDP Chat programı var
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
