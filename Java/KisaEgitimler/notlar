@@ -3915,10 +3915,153 @@ sout(" ");
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
+https://www.udemy.com/course/learn-beginners-java/learn/lecture/18533554?start=0#overview
+2 saat 
+eclipse ile çalışıyor
+
+Scanner input = new Scanner(System.in);
+
+int number1 = input.nextInt();
+double number2doub = input.nextDouble();
+int number3Int = input.nextInt();
+sout("USer input %d%n,%f%n",number1,number2Doub);
+%d integer için %f double için
+%n alt satıra atar
+
+if(number1==number3Int) {
+sout("%d ==%d%n number1 is equal to number3",number1,number3Int);
+//printf kullandık üstte de burada da
+}
+---------------------
+Class, object , methods , strings:
+
+public class Account {
+private String name;
+
+public Account(String name) {
+this.name=name;
+}
+
+public void setName(String name){
+this.name=name;
+}
+
+public String getName(){
+return name;
+}
+
+}
+
+---------------------
+Instance Get and Set:
+
+az önceki Account class dursun
+public class AccountTest {
+psvm{
+Scanner input = new Scanner(System.in);
+Account myAccount = new Account();
+sout("Initial name is %s%n%n ",myAccount.getName());
+sout("Please enter name");
+String theName = input.nextLine();
+myAccount.setName(theName);
+sout();
+
+sout("Name in the object myAccount is: %s%n", myAccount.getName());
+}
+
+}
+
+-----------------
+Constructors:
+
+public class AccountTest {
+psvm{
+
+Account account1 = new Account("Jane Green");
+Account account2 = new Account("John Blue");
+
+sout("Account1 is %s%n%n ",account1.getName());
+sout("Account2 is %s%n%n ",account2.getName());
+
+}
+
+}
 
 
+--------------
+Account class üzerinde devam edelim
 
+public class Account {
+private String name;
+private double balance;
 
+public Account(String name, double balance) {
+this.name=name;
+
+if(balance>0.0){
+this.balance=balance;
+}
+}
+
+public void deposit(double depositAmount){
+if(depositAmount >0.0){
+balance=balance+depositAmount;
+}
+}
+
+public double getBalance(){
+return balance;
+}
+
+public void setName(String name){
+this.name=name;
+}
+
+public String getName(){
+return name;
+}
+
+}
+
+Şimdi o halde yeni parametreleri eklemek lazım
+public class AccountTest {
+psvm{
+
+Account account1 = new Account("Jane Green",,50.00);
+Account account2 = new Account("John Blue",-7.33);
+
+sout("Account1 is belonged to %s €%.2f%n%n ",account1.getName(),account1.getBalance());
+sout("Account2 is belonged to %s €%.2f%n%n ",account2.getName(),account2.getBalance());
+
+Scanner input = new Scanner(System.in);
+sout("Enter deposit amount for account1: ");
+double depositAmount = input.nextDouble();
+sout("%.2f to account1 balance", depositAmount);
+account1.deposit(depositAmount);
+}
+}
+
+--------------
+
+While statements:
+
+public class ClassAverage{
+psvm{
+Scanner input = new Scanner(System.in);
+int total=0;
+int gradeCounter=1;
+
+while(gradeCounter<=10){
+sout("Enter grade:");
+int grade = input.nextInt();
+total=total+grade;
+gradeCounter = gradeCounter+1;
+}
+int avearage = total/10;
+sout("%n Total of all 10 grades is %d %n",total);
+sout("%n Class average is %d %n",average);
+}
+}
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
