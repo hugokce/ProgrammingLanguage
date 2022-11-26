@@ -1,0 +1,84 @@
+https://www.udemy.com/course/java-programming-language-java-for-beginners-course/learn/lecture/20736782#overview
+
+3 saat BakedBracket
+
+Amazon coretto
+https://aws.amazon.com/tr/corretto/?filtered-posts.sort-by=item.additionalFields.createdDate&filtered-posts.sort-order=desc
+Masrafsız, çok platformlu, üretime hazır OpenJDK dağıtımı
+11 versiyonu indirdik
+win64ü indirdik
+https://corretto.aws/downloads/latest/amazon-corretto-11-x86-windows-jdk.msi
+144 MB dosya
+amazon-corretto-11.0.17.8.1-windows-x86.msi
+
+IntellijIDE indiriyoruz  4dk
+community kısmında download dedik
+ideaIC-2022.2.4.exe
+IDE ayarlama
+il açınca struct your new project dedik
+project sdkda java11 gelmezse edit ile corretto yeri
+verilir. corretto için binin üst klasörü verilir buraya.
+Tekrar configure edilir ve Settings açılır
+Editor açılır Auto Import açılır
+Add unambigious imports ve optimize imports check edilir.
+Appearance show line numbers seçilir.
+code folding açılır Java altında one-line methods
+checki kaldırılır.
+genericteki check kaldırılır. kaydedilir.
+
+start a new project
+Create new project dedik
+Project name firstProject dedik
+src klasörü görürüz sağ tıklarız new java class deriz
+HelloWorld deriz
+src altında oluşur. Code editor açılır
+
+Bölüm 3
+class notebook gibidir. çoğunlukla kodu class içinde
+yazarız.
+private 
+protected 
+public vardır bizimki public herkes erişebilir.
+
+helloworldede class içinde psvm dedik
+main içinde sout dedik
+içine Helloworld yazdık Run Java dedik
+
+Systemi system olarak yazarsak system paketini arar
+main metodu koymazsak Run komutu çıkmaz.
+
+Variables 6dakika
+sout("There once was a knight named John. John killed" + dragonsNmb + "dragons  "a reward for killing" + dragonsNmb + "dragons, he received" + dragonsNmb + "gifts");
+helloworld içine ekledim sout olarak
+int dragonsNmb =3;
+    declaration kısmı int dragonsNmb  
+    initialization  ise 3 kısmıdır.
+
+Bölüm 4 Variables
+long tanımlarken sonuna L koyarız
+long myLong = 353L;
+
+float tanımlarken sonuna f koyarız
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
