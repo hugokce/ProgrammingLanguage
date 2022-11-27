@@ -59,18 +59,414 @@ long tanımlarken sonuna L koyarız
 long myLong = 353L;
 
 float tanımlarken sonuna f koyarız
+float myFloat = 25.56f;
+
+char myChar='A';
+internette unicode character table aradık
+unicode-table.com bulduk
+
+TM dedik U+2122 dedi
+
+char tmSign ='\u2122';
+sout(cola "+tmSign) dedik
+String myString = "Strings are cool";
+String 2milyardan fazla karakter alabilir.
+
+boolean
+boolean myBoolean = true;
+
+user input Scanner:
+Scanner scannerBoy = new Scanner(System.in);
+int year = scannerBoy.nextInt();
+double myDouble = scannerBoy.nextDouble();
+String myName = scannerBoy.nextLine();
+
+Scan yazıp java util ekledik
+helloworldde yazdım
+
+Bölüm 5 
+yeni proje oluşturduk km to miles ve 
+kg to lbs örneği yaptık
+
+Bölüm 6 Operators and conditional statements 30 dakika:
+CHARACTER+ESCAPE+RESOURCE.pdf
+CHARACTER+ESCAPE.pdf
+2 doküman var.
+
+// ile satırı commentleriz
+/* */ ile aralığı commentleriz
+
+sout("I want to read book \" Jozy in the shopping center\"");
+sout("You \nare \nsmart");  üç kelimeyi alt alta verir
+sout("name \tJosh \tMark \tPeter");
+sout("salary \t700 \t200 \t450");
+tablo halinde verir.
+
+if statements:
+if (condition) {code}
+else if
+else
+nested if
+
+Bölüm 7 Control Flow Statements 30 dakika
+Looplar
+int chew=0;
+if(chew<33){chew++;}
+if(chew<33){chew++;}
+if(chew<33){chew++;}
+diye gider if ile yapsak
+
+while ile yapsak
+int chew=0;
+while(chew<33){chew++;}
+
+for
+while do while loopları vardır
+
+while loopları
+
+for 
+for(int i=0;i<5;i++){code}
+
+do while
+koşul sağlanmazsa loop durdurmak istersek kullanırız
+do while önce loopa gider sonra condition kontrol eder
+sonra doğruysa loopa devam eder.
+
+break and continue:
 
 
+Bölüm 8 methods and arrays 25 dakika:
+Array 6dakika
+bazen objeleri gruplamak isteyebilriiz
+String dinnerGlasses = new String[4];
+önce type tanımlarız sonra  adını tanımlarız
+sonra new sonra yine typeını gireriz
+en sonda da 4 element sakladığımızı belirtiriz
+kaç element saklayacaksak o kadar.
+array 0dan başlar 0 1 2 3 
+dinnerGlasses[0]="Glass mikesGlass";
+dinnerGlasses[1]="Glass joesGlass";
+dinnerGlasses[2]="Glass oldGlass";
+dinnerGlasses[3]="Glass newGlass";
+
+methods 7dakika:
+java methodları collection of statements or instructions 
+grouped together to perform a certain task.
+main dışında methodu oluştururuz main içinde bu methodu
+çağırırız.
+
+public static void methodName(){body of the method}
+methodname hangi adla çağıracağız onu veririz
+() method olduğunu belirtiriz
+{}  kodumuz ne yapacak onu belirtir.
+
+pass the parameter method 6 dakika:
+pass the values olayını () içinde yapabiliriz
+public static void metertoYard(int meter) {body of method}
+public static void shop(String wifeName,int money,int time) {body of method}
+3 variable alıp çalışır bu method
+methodda parameter tanımlayıp main içinde çağırırken
+o parametreyi de eklemezsek uyarı fırlatır.
+
+ikinci örnekte 2 parametre verelim
 
 
+returning the value method 7 dakika:
+pass the values back yani.
+public static void methodName() {body of the method}
+void anlamı methoddan birşey dönmesin istiyorum demektir.
+değer döndürmek için 2 işlem yapılır
+birincisi declare what ne döndürmek istiyoruz
+ikincisi send value return kullanarak
+
+void dont receive value from the method back
+int receive int from the method back
+double receive double from method back
+String receive String from the method back
+or objects
+
+ikinci kısım send value using return keyword
+return mycalculation;
+mycalculation burada variable with value we are sending
+converto to dollarto euro örneğine bakalım
+public static double convertToEuro(double doller$){
+double euro€ = dollar$*0.90;
+return euro€;
+}
+
+burada double tanımladık ve double istiyoruz
+geriye de double döndürsün istiyoruz.
+bize hesaplayıp double euro döndürecek
+
+şimdi de 3 değerin ortalamasını alalım
+method5.java
+
+kurallar
+you can return just 1 value
+you must return a value if you say so (define in method)
+return followed by the value exits the method
+aslında methoddan değer döndürmek demektik returning.
+void yerine whatderiz ve yerine tipini ekleriz
+String, int
+return kullanıp hangi değeri döndürmek istediğimizi veririz
+
+Bölüm 9 Classes and Objects 34 dakika:
+object memoryde oluşturduğumuz entitylerdir
+insan, hayvan, masa objedir
+tableın özellikleri olur rengi, shapei, dimensionı vs.
+köpek mesela color, size, age,breed özellikleri vardır
+ama bark() edebilir. run() edebilir.
+
+classes are like creation books or blueprints for the objects
+yani obje oluşturmak için classları kullanırız
+dogu nasıl tanımlarız?
+doglar neye ihtiyaç duyar
+bunların hepsini classta oluşturabiliriz
+mesela string color int size bark() gibi.
+hepsini classa koymamız lazım. ismini de dog koyarız
+bunlar variables, methods ve objectstir
+Sonra özel bir dog oluşturmak istersek buna instance deriz
+create an instance buna charlie diyebiliriz mesela
+burada bilmemiz gereken string name Charlie, 
+string breed French buldog, int size 30
+ve string colordır tan.
+Objectler classlardan oluşturulan instancelardır.
+classes are blueprints for creating objects.
+objeleri variables,methods ve diğer objelerle tanımlayabilriz
+
+Creating objects 6 dakika:
+önce main adında class oluşturduk 
+şimdi yeni bir class daha oluşturalım dog olsun
+
+instance oluşuralım main içinde oluşturduk
+Dog myPet = new Dog();
+
+myPet. deyince özellikler gelir
+
+Dog myPet = new Dog();
+classname Dog
+reference name myPettir
+Dog() classnamedir.
+
+Dog() içinde özelliklerini tanımladık
+main içinde de instance verdik myPet
+sonra . deyip özelliklerine tanımlama yaptık
+sonra sout ile ekrana yazdırdık
+
+constructors 6 dakika:
+construct your objects.
+az önce 2 class oluşturduk
+az önce yaptığımız instance tanımlayıp satır satır
+özelliklere tanım yapmamız best way değil
+şimdi verimli yolu deneyelim
+Dog classında yeni birşeyler yapalım
+    public Dog2(String name, int age,String breed,String color){
+this.name=name;
+this.age=age;
+this.breed=breed;
+this.color=color;
+    }
+üstteki variable ile constructordaki variableları this ile
+bağladık
+
+Şimdi main classa dönelim
+main içine ekledik
+Dog2 myPet = new Dog2("Charlie", 3, "French boldog", "tan");
+    System.out.println(myPet.name);
+
+Charlie yazdırdık
+
+Constructor oluşturduk variableları içine ekledik
+constructor direk value atamak için kullanılır
+public nameofClass() {} ile oluşturulur
+this ise field variable ile constructorı bağlar.
+
+instance methods 6 dakika:
+köpek varsa ona otur diyebiliriz yoksa diyemeyiz
+tv varsa açıp kapatabilriz ama yoksa birşey yapamayız
+bazı methodlar objectsiz yapamazlar. 
+
+public static void methodName() {body of method}
+static çalıştırmak run etmek için object instancea 
+ihtiyaç olmadığını gösterir.
+
+static olmadığında methodlara objectler ile ulaşabiliriz
+public void bark() {body of method}
+static yok burada böylece bark() diyerek çağıramayız.
+objeye ihtiyacımız var. yani myPet.bark(); 
+deyip çağırmak lazım.
+Şimdi dog classta 3 instance oluşturalım
+bark run stop 
+tüm methodlar void dönecek ya da hiçbirşey dönmeyecek
+önce bark oluşturalım arf arf yazsın
+public void bark(){
+        System.out.println("your dog has stopped running");
+    }
+
+maine gittik bark dedik class gelmedi
+myPet. dediğimiz zaman bark geliyor
+myPet.bark() deyip çalıştırdığımız zaman
+arf arf döndü.
+
+yani kısacası static koymayınca instance oluşturup onunla
+çağırmak lazım
+static varsa instance oluşturmadan çağırabilriz
+sırada getters and setters var.
+
+getter and setters 7 dakika:
+public yazıyorsa herkes erişebilir demektir.
+herkes girmesin istersek private kullanırız
+private şu demek class ile buna erişilebilir demektir.
+
+methodlar ve variableslar private yapılabilir
+instance variables private olursa class dışından buna direk
+erişilemez.
+
+Şimdi dog classında variablelar başına private ekleyelim
+sonra maine dönelim
+
+şimdi myPet. dediğimiz zaman private olduğu için 
+variablelar gelmediler
+myPet.name desek de hatırlamayacak
+peki değiştirmek için nasıl bir yol izlememiz gerekiyor
+getters and setters kullanmaktır.
+getter setter valueyu getirecek ve set edeceğiz
+şimdi Dog classına gelip public set deyince Nameden 
+yakalayıp setName methodunu çağırıp oluştururuz
+
+public setName(String name){
+    this.name=name;
+}
+birşey döndürmez 1 tane argument alır o da string namedir.
+() içinde ne verirsek onu bize verir.
+
+şimdi maine dönelim
+myPet.set deyince setName() gelir karşımıza.
+main içinde myPet.setName("Bitey"); tanımlarız
+Peki name değişirse nasıl görürüz?
+myPet.get dediğimizde birşey gelmez.
+bize değeri gösterecek bir method gerekiyor
+
+Dog classına geri dönelim şimdi
+public String getName(){
+ return name;
+} ekleriz
+
+Şimdi maine dönelim yine
+ System.out.println(myPet.getName()); ekledik main içine
+
+Bitey döndü
+
+Getter and Setter değerleri değiştirmeye ve göstermeye yarar
+setter change the value
+getter retrieves the value
+
+setter
+public Worker {
+private int wage;
+public void setWage(int wage){
+this.wage=wage;
+}
+}
+
+getter
+public Worker {
+int wage;
+public int getWage(){
+return wage;
+}
+}
+
+overloading constructors 5 dakika:
+
+2 parametreli constructor olsun
+
+Student student1 = new Student("Lara");
+
+public Student(String name,int age){}
+
+yaş olmadığı için object oluşturamayız
+bazen tüm bilgilere sahip olmayacağız
+ama object oluşturmak zorundayız.
+Tüm parametrelerin olmadığı Multiple constructor 
+oluşturmamız gerekiyor bununla mücadele etmek için. 
+peki java hangisini compile edeceğini nasıl bilecek
+PArametrelere göre karar verir
+Student freshman1 = new Student("Josh");
+1 tane String alıyor 
+public Student(String name,int schoolYear,String College){}
+public Student(String name){}
+bu 2 constructordan hangisini kullanacak
+1 string aldığı için ikinciyi kullanacak
+hangisi 1 tane string alır diye bakar ve onu kullanır
+Constructor overloading bize farklı parametrelerle
+object oluşturmak için olan bir özelliktir.
+
+birçok constructor olabilir
+public Student(String name,int years,books read){}
+public Student(String name){}
+public Student(int years){}
+
+Bazen de bilgi girmezsek default olana ihtiyaç duyarız
+default değeri this() ile pass ederiz
+
+this.variable  field variablea atıfta bulunur
+this() ise diğer constructora değer yollar.
+
+public class Player{
+public Player(String name){
+this.name=name;
+}
+}
+
+Player player1=new Player("Joe"); yerine
+
+Player player1=new Player(); olarak gönderse
+bu olunca parametresiz constructorımız olmadığı için 
+hata fırlatır o zaman parametresiz constructor oluşturalım
+
+public Player(){
+} bunu public class Player(){  içine ekleyelim
 
 
+public class Player{
+
+public Player(){
+} 
+public Player(String name){
+this.name=name;
+}
+}
 
 
+halen ekrana yazdırmak için generic namee ihtiyacımız var
+içine this("PlayerUnkown") ekledik
 
+public class Player{
 
+public Player(){
+this("PlayerUnknown");
+} 
+public Player(String name){
+this.name=name; }
+}
 
+bu hale çevirince
+Player player1=new Player(); çağırıldığı zaman
+bize PlayerUnknown döner. ekrana bunu yansıtır
 
+Player player1=new Player("Joe");  derse 
+String alana gider onu çalıştırır o constructor çalışır
+
+birçok parametre olunca constructor overload olur
+default value generate eden constructor oluşturabiliriz
+constructordan constructora değer atmak için this() 
+kullanırız.
+
+Bitti
+
+https://udemy-certificate.s3.amazonaws.com/pdf/UC-1e7d670e-4d40-4755-92fd-fad72a769caf.pdf
 
 
 
