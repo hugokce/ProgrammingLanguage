@@ -1,3 +1,114 @@
 https://www.udemy.com/course/java-for-noobs-beginners/learn/lecture/3757470?start=30#overview
 
 4,5 saat
+
+java sdk 8u60 64bit kuruldu
+
+eclipse üzerinden ilerliyoruz
+eclipse ide for java developers seçiyoruz
+
+Java Project açtık ve Class oluşturduk
+print dersek aynı satıra basar bir sonraki printi
+println dersek bir sonraki satıra geçer.
+
+primitive data types
+int, float, double, char,boolean
+
+string fn ="A";
+string ln = "B";
+string fulln= fn + " "+ ln;
+sout (fulln);
+fulln = fulln +Integer.toString(123);
+sout(fulln);
+
+
+aritmetik operator 
++,-,*,/ % mod için
+
+String 
+string fn ="A";
+string ln = "B";
+string fulln= fn + " "+ ln;
++ ile birleştirebiliriz stringleri
+
+sout("x is "+ x);
+sout("x - y = "+ (x-y));
+sout("x * y = "+ (x*y));
+
+relational operators
+==, !=, >, >=,<,<=
+
+
+int x=10;
+int y=5;
+sout(x<y); false döner
+
+boolean result = x<y; şeklinde de bakabiliriz
+sout("x<y: " +result);
+
+if statement:
+int x=10;
+int y=5;
+if(x<y){
+sout(x is bigger than y);
+sout(x is bigger than y)
+}
+
+{} içine iki statement koymazsak 1 tane sout verir
+ama {} içine yazarsak iki satırı da çalıştırır.
+
+if else statement
+int x=10;
+int y=5;
+if(x<y)
+sout(x is bigger than y);
+else
+sout(x is not bigger than y);
+
+else içini {} içine alırsak iki defa sout yazarsak
+ikisini de gösterir
+
+if kısmı doğruysa ve else içinde {} ileyazmazsak
+else kısmı da çalıştırılır
+
+int x=10;
+int y=5;
+if(x>y)
+sout(x is bigger than y);
+else
+sout(x is not bigger than y);
+
+iki satır da gelir
+
+else if statement:
+int x=10;
+int y=5;
+if(x>y)
+sout(x is bigger than y);
+else if(x==y)
+sout(x is equal to y);
+else
+sout(x is not bigger than y);
+
+nested if, else, else if statement:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
