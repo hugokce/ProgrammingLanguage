@@ -92,6 +92,100 @@ sout(x is not bigger than y);
 
 nested if, else, else if statement:
 
+int x=9;
+int y=5;
+if(x>y){
+if(x%2==0){
+sout(x is bigger than y);
+sout(x is even);
+}
+else{
+sout(x is bigger than y);
+sout(x is odd);
+}
+}
+
+conditional operators && ||
+
+int x=102;
+int y=5;
+if(x>y)
+if(x%2==0)
+if(x>100)
+sout(x is bigger than y is even and greater than 100);
+bu haliyle çalışıyor ama daha basit yazalım
+
+int x=102;
+int y=5;
+if(x>y || x>2==0 )
+sout(x is bigger than y or x is even);
+
+Switch Statement:
+String animal = "cat";
+switch(animal){
+case "cat":
+sout("meow");
+break;
+case "dog":
+sout("bark");
+break;
+default:
+sout("dont know what animal this is");
+}
+
+animal yerine cow dersek default olan çalışır
+
+Methodlar:
+psvm{
+int a=1;
+int b=2;
+//int sum=a+b;
+int sum = add(a,b);
+sout(sum);
+}
+public static int add(int a,int b){
+return a+b;
+}
+
+bunun sonucu 1+2 =3 gelir
+
+Stringleri birleştirelim
+
+psvm{
+int x=1;
+int y=2;
+//int sum=x+y;
+int sum = add(x,y);
+sout(sum);
+
+String fname="Pedro";
+String lname="Mercado";
+String result=addString(fname,lname);
+sout(result); 
+}
+public static int add(int a,int b){
+return a+b;
+}
+
+public static String addString(String a,String b){
+return a+" "+b;
+}
+
+Bölüm 3:
+int x=0;
+x++;  post increment 
+sout(x);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
