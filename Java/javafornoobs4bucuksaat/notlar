@@ -176,6 +176,223 @@ int x=0;
 x++;  post increment 
 sout(x);
 
+x++;
+x=x+1 ; 
+dersek 0 1 sonra 2 olur.
+
+int x=0;
+sout(x++);  dersek 0 verir çıktı olarak
+ama x 1 olmuştur.
+
+int x=0;
+sout(x++);   post increment
+sout(x); dersek  0 ve 1 alt alta verir çünkü x++ 0 verir
+x ise 1 olarak döner.
+
+
+int x=0;
+sout(++x); dersek 1 olur   pre increment
+sout(x);   buna da 1 basar.
+
+int x=0;
+x--;     decrement denir
+sout(x);  -1 gelir
+
+int x=0;
+sout(x--);    0 verir
+sout(x);    -1 verir
+
+int x=0;
+sout(--x);  -1 verir   pre decrement
+sout(x);    -1 verir
+
+int x=0;
+x--;    post decrement
+x=x-1;
+sout(x);    -2 verir
+
+
+for loop 3 dakika:
+initialization variable starting pointtir
+condition i<10
+en son increment i++
+for (int i = 0;i<10;i++){
+sout(i);
+}
+
+0 1 2 3 4 5 6 7 8 9
+
+while loop 3 dakika:
+int i=0;
+while(i<10){
+sout(i);
+i++;
+}
+
+
+do-while loop 2 dakika:
+en az 1 kere loopu çalıştırır
+i<10 koşulunu sağlama ihtiyacı hissetmez.
+
+int x=10;
+do{
+sout("Hello");
+}
+while(x<10);
+bunun sonucunda hello yazdırır ekrana.
+
+nested for loops 5 dakika:
+for(int i =0;i<5;i++){    satır sayısını verir
+for(int j=0;j<5;j++){     sütun sayısını verir
+sout("* ");
+}
+sout();
+}
+
+Arrays 7 dakika:
+Array adlı dosya var.
+3 tane değişken oluşturalım
+int a=1;
+int b=2;
+int c=3;
+peki binlerce değer olursa 
+int[] x = new int[3];   array oluştururuz [] ile
+x[0]=a;
+sout(x[0]);   1 verir  
+x[1]=b;
+x[2]=c;
+
+bu şekilde oluşturmak yerine
+int a=1;
+int b=2;
+int c=3;
+int[] x = {a,b,c};  
+sout(x[0]);   1 verir bize
+
+yine binlerce değer olursa alt alta print mi edeecğiz.
+o yüzden for loop kullanacağız
+int a=1;
+int b=2;
+int c=3;
+int[] x = {a,b,c};  
+for(int i=0;i<x.length;i++){
+sout(x[i]);
+}
+
+1 2 3 döner bize
+
+int[] x = new int[sizeofarray];
+int[index]=5;
+int[] x={1,2,3,4,5}
+0 1 2 3 4   5 elemanlı 
+1 2 3 4 5  olarak maplenir
+
+2d 2 boyutlu arrayler 7 dakika:
+int row=2;
+int col=5;
+int[][] x= new int[row][col];
+x[0][1]=1;
+1. satır 2.sütun 1 verdik
+  0 1 2 3 4 
+0   1
+1
+
+int row=2;
+int col=5;
+int[][] x = new int[row][col];
+x[0][1]=1;
+sout(x[0][1]);  çıktı olarak 1 verir
+
+int row=2;
+int col=5;
+int[][] x = {{1,2,3},{4,5,6},{7,8,9}};  0.row, 1.row,2.row
+sout(x[0][1]);
+0.row 1,2,3 buradaki 1. kolon 2 olduğu için 2 verir
+
+peki hepsini ekrana yazdırmak istersek
+
+int row=2;
+int col=5;
+int[][] x = {{1,2,3},{4,5,6},{7,8,9}};  0.row, 1.row,2.row
+for(int i = 0;i<3;i++){   3 satır olduğu için
+for(int j = 0;j<3;j++){
+sout(x[i][j] +" ");   burada print kullanırız
+}
+sout();  
+}
+
+1 2 3
+4 5 6
+7 8 9 verir ekrana
+
+Bölüm 5 Getting Input
+Getting Input from keyboard 5 dakika:
+import java.util.Scanner;  import edilir
+Main içinde
+
+Scanner input = new Scanner(System.in);
+sout("Please enter your name");
+String fname=input.nextLine();
+sout("Hello "+fname);   verdiğimiz ismi döndürür
+2integer daha ekletelim
+sout("Please enter a number 1");
+int number1 = input.nextInt();
+sout("Please enter a number 2");
+int number2 = input.nextInt();
+sout(number1 + number2);
+burada ikisini toplar öyle ekrana yazdırır
+
+
+Getting Input from text file 6 dakika:
+import java.util.Scanner;  import edilir
+import java.io.File;
+import java.io.FileNotFoundException;   try catch ile gelir
+Main içinde  
+File file = new file("test.txt");  dosya adını içine veririz
+try {
+Scanner input = new Scanner(file);
+} catch(FileNotFoundException e ){
+sout("File Not Found");   dosya yoksa yazar
+e.printStackTrace();
+}
+
+dosya yoksa exception fırlatacak File Not Found yazar ekrana
+
+3 satır yazdık o yüzden while ekledik içine
+
+import java.util.Scanner;  import edilir
+import java.io.File;
+import java.io.FileNotFoundException;   try catch ile gelir
+Main içinde  
+File file = new file("test.txt");  dosya adını içine veririz
+try {
+Scanner input = new Scanner(file);
+while(input.hasNextLine()){    bir sonraki satırı varsa çalışmaya devam eder.
+sout(input.nextLine());
+}
+input.close();  dosya bitince bağlantıyı kopardık
+} catch(FileNotFoundException e ){
+sout("File Not Found");   dosya yoksa yazar
+e.printStackTrace();
+}
+
+Bölüm 6 Problem1 12 dakika:
+kare alanı
+dikdörtgen alanı
+üçgen alanı hesapla
+
+fahrenheit to calculus to fahrenheit hesapla
+
+inch to cm to inch hesapla.
+
+
+
+
+
+
+
+
+
 
 
 
