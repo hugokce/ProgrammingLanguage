@@ -63,5 +63,56 @@ func main() {
 
 ---------------------------------------------------------------------------
 
+Go Keywords
+
+break case    chan    const   continue default defer     else fallthrough
+for   func    go      goto    if       import  interface map  package
+range return  select  struct  switch   type    var
 
 
+ders3.go
+//Veri tipleri
+/*
+Temel : Numbers(int,float,complex),String,Boolean
+Küme veri tipi: Array ve Structure
+Referans veri tipleri: Pointers, slices, maps, functions ve channels
+*/
+
+package main
+
+import "fmt"
+
+func main() {
+	var x int = 127000000000000
+	fmt.Println(x)
+
+	var y float32 = 32.56
+	fmt.Println(y)
+
+	var z complex128 = complex(6, 2)
+	fmt.Println(z)
+	//uint 0 altında değer almaması için kullanılır
+
+	var isim string = "Musa"
+	fmt.Println("Udemy")
+	fmt.Println(isim)
+
+	var islem bool = true
+	fmt.Println(islem)
+
+}
+
+
+---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------
