@@ -1,8 +1,12 @@
 package main
+
 import "fmt"
 
-func main(){
+func main() {
 
-	
+	fmt.Println("Merhaba Dunya")
 }
 
+go run ders1.go
+
+--------------------------------------------------
