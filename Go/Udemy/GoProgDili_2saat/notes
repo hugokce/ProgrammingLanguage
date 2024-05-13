@@ -104,8 +104,34 @@ func main() {
 
 
 ---------------------------------------------------------------------------
+ders4.go
 
+package main
 
+import "fmt"
+
+func main() {
+
+	var takim1, takim2 = "A takımı", "B takımı"
+	fmt.Println(takim1, "ile", takim2, "akşam 19da karşılaşacaklar.")
+
+	//bunu printf ile yaparsak
+	fmt.Printf("%s ile %s akşam 19da karşılaşacaklar\n", takim1, takim2)
+	//\n ekledik ki printf çıktıları karışmasın
+	var takim1Gol, takim2Gol = 3, 2
+
+	fmt.Printf("Maç sonu skoru: %d-%d\n", takim1Gol, takim2Gol)
+
+	//float
+
+	var siddet float32 = 4.3
+	fmt.Printf("Ege açıklarında %g şiddetinde sarsıntı oldu.", siddet)
+
+}
+
+---------------------------------------------------------------------------
+
+ders5.go
 
 
 
