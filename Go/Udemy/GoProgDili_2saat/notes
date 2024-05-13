@@ -9,4 +9,59 @@ func main() {
 
 go run ders1.go
 
---------------------------------------------------
+---------------------------------------------------------------------
+
+ders2.go
+
+package main
+
+import "fmt"
+
+func main() {
+
+	var isim_soyisim string
+	var yas int
+	var yetiskinmi bool
+
+	isim_soyisim = "Musa Karaer"
+	yas = 50
+	yetiskinmi = true
+
+	fmt.Println("İsim Soyisim: ", isim_soyisim)
+	fmt.Println("Yaş: ", yas)
+	fmt.Println("Yetişkin mi: ", yetiskinmi)
+
+	isim_soyisim = "LLLL"
+	yas = 10
+	yetiskinmi = false
+
+	fmt.Println("İsim Soyisim: ", isim_soyisim)
+	fmt.Println("Yaş: ", yas)
+	fmt.Println("Yetişkin mi: ", yetiskinmi)
+	fmt.Println("***********************")
+
+	var username string = "admin"
+	fmt.Println(username)
+
+	// bu comment ekleme yöntemi
+	/*
+		bu da comment ekleme yöntemi
+	*/
+	fmt.Println(3 * 3)
+	fmt.Println(12.5 / 3)
+
+	//sabit değer atamak istersek
+	const password = "12345"
+	fmt.Println("password: ", password)
+
+	//Inferring Type
+	//
+	dakika := 60
+	saat := 24
+	fmt.Println("Bir günde", dakika*saat, "dakika vardır.")
+}
+
+---------------------------------------------------------------------------
+
+
+
