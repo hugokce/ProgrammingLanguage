@@ -351,6 +351,29 @@ ders11.go
 
 kimliksorma
 
+package main
+
+import "fmt"
+
+func main() {
+
+	fmt.Println("İsminiz:")
+	var isim string
+	fmt.Scanln(&isim)
+
+	fmt.Println("Yaşınız:")
+	var yas int
+	fmt.Scanln(&yas)
+
+	if yas <= 18 {
+		fark := 18 - yas
+		fmt.Printf("Üzgünüz %s yaşın 18den küçük olduğu için alamıyoruz. %d sene sonra bekleriz", isim, fark)
+
+	} else {
+		fmt.Printf("Hoşgeldin %s iyi eğlenceler", isim)
+	}
+
+}
 
 ---------------------------------------------------------------------------
 
