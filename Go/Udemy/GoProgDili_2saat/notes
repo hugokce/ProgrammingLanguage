@@ -284,6 +284,66 @@ func main() {
 
 ---------------------------------------------------------------------------
 ders10.go
+ATM 
+
+package main
+
+//ATM projesi
+
+import "fmt"
+
+func main() {
+
+	hesap := 10000
+	//sürekli döngü oluşturalım
+	for true {
+		//çok satırlı ifade yazalım altgr virgül
+		fmt.Println(`**********İŞLEMLER**********
+		1. Para Çekme
+		2. Para Yatırma
+		3. Bakiye Sorma
+		4. Çıkış
+		
+		Lütfen İşlem Tipini Seçiniz: `)
+
+		var islem int
+		fmt.Scanln(&islem)
+
+		if islem == 1 {
+			fmt.Println("Çekilecek tutarı giriniz: ")
+			var cekilenMiktar int
+			fmt.Scanln(&cekilenMiktar)
+			//burada cekilen miktarın hesaptan büyük olmadığını kontrol etmek lazım
+			if cekilenMiktar <= hesap {
+				fmt.Println("Paranızı kutudan alınız")
+				//şimdi çekilen tutarı hesaptan düşmek lazım
+				hesap -= cekilenMiktar
+				fmt.Println("Bakiyeniz: ", hesap)
+			} else {
+				fmt.Println("Bakiyeniz yeterli değil.")
+			}
+
+		} else if islem == 2 {
+			fmt.Println("Yatırmak istediğiniz miktarı giriniz: ")
+			var yatirilanMiktar int
+			fmt.Scanln(&yatirilanMiktar)
+			hesap += yatirilanMiktar
+			fmt.Println("Bakiyeniz: ", hesap)
+
+		} else if islem == 3 {
+			fmt.Println("Bakiyeniz: ", hesap)
+
+		} else if islem == 4 {
+			fmt.Println("İyi Günler dileriz: ")
+			//çıkış için bir döngüyü kıralım
+			break
+			//kullanıcı yanlış bir işlem tipi girmesin diye kontrol koyalım
+		} else {
+			fmt.Println("Lütfen uygun bir işlem seçiniz.")
+		}
+	}
+
+}
 
 
 ---------------------------------------------------------------------------
