@@ -217,8 +217,26 @@ func main() {
 ---------------------------------------------------------------------------
 ders8.go
 
+package main
+
+//rastgele sayi uretme
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+func main() {
+	min, max := 1, 100
+	//1.20 altinda alttaki kodu eklemezsek hep aynı sayıyı üretebilir
+	rand.Seed(time.Now().UnixNano())
+	sayi := rand.Intn(max - min)
+	fmt.Println("Üretilen sayi", sayi)
+}
 
 ---------------------------------------------------------------------------
+ders9.go
+
 
 ---------------------------------------------------------------------------
 
