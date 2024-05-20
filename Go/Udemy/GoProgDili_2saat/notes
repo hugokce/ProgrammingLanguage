@@ -133,7 +133,31 @@ func main() {
 
 ders5.go
 
+package main
 
+import "fmt"
+
+func main() {
+
+	toplam := 0
+	for i := 0; i < 10; i++ {
+		toplam += i
+		fmt.Println("Toplam: ", toplam)
+	}
+	//fmt.Println("Toplam: ", toplam)
+
+	//////////////while gibi davranan for////////////////////////////
+	toplam2 := 1
+
+	for toplam2 < 1000 {
+		toplam2 += toplam2
+		fmt.Println("Toplam2: ", toplam2)
+	}
+
+}
+
+---------------------------------------------------------------------------
+ders6.go
 
 
 
