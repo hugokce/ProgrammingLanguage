@@ -376,8 +376,51 @@ func main() {
 }
 
 ---------------------------------------------------------------------------
+ders12.go
+switch case
+
+package main
+
+import "fmt"
+
+//switch case
+//ifelsein daha kısa ifadesidir
+func main() {
+
+	// gun := 5 kullanıcıdan almak isteyince kapattık
+	fmt.Println("Ne zaman geleceksiniz?")
+	var gun int
+	fmt.Scanln(&gun)
+	switch gun {
+	//gün değişkeni tanımlamasını switch
+	//yazarken de tanımlayabiliriz
+	//switch gun:=6 ;gun {} şeklinde
+	case 1:
+		fmt.Println("Pazartesi")
+		//case 1,5 şeklinde de yazabiliriz
+		//böylece bu 2 değer için de aynı
+		//değeri döndürür.
+	case 2:
+		fmt.Println("Salı")
+	case 3:
+		fmt.Println("Çarşamba")
+	case 4:
+		fmt.Println("Perşembe")
+	case 5:
+		fmt.Println("Cuma")
+	case 6:
+		fmt.Println("Cumartesi")
+	case 7:
+		fmt.Println("Pazar")
+
+	default:
+		fmt.Println("Geçersiz")
+	}
+}
 
 ---------------------------------------------------------------------------
+ders13.go
+
 
 ---------------------------------------------------------------------------
 
