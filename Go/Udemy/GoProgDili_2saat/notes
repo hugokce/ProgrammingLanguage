@@ -460,6 +460,37 @@ func kimlikSor() {
 ders14.go
 Parametre alan fonksiyonlar
 
+package main
+
+//parametre alan fonksiyon oluşturalım
+//kare alan fonksiyon
+import "fmt"
+
+func main() {
+
+	fmt.Println(kareAl(25))
+	fmt.Println(kareAl(40))
+	fmt.Println(topla(34, 45))
+	selamla("Ahmet")
+}
+
+func kareAl(x int) int {
+	//geri dönecek değer yine int olduğu için
+	//parantez sonrası yine int dedik
+	return x * x
+
+}
+
+func topla(x, y int) int {
+	return x + y
+
+}
+
+func selamla(isim string) {
+	//return ifadesi kullanmayacaksak
+	//parantez dışına veri tipi yazmamıza gerek yok
+	fmt.Printf("%s merhaba", isim)
+}
 
 ---------------------------------------------------------------------------
 
