@@ -493,9 +493,35 @@ func selamla(isim string) {
 }
 
 ---------------------------------------------------------------------------
+ders15.go
+
+package main
+
+import "fmt"
+
+//rastgele sayıda parametre alan fonksiyon
+func main() {
+
+	fmt.Println(topla(2, 5))
+	fmt.Println(hepsiniTopla(2, 34, 56, 45, 34))
+}
+
+func topla(x, y int) int {
+	return x + y
+}
+
+//kaç argüman gireceğini bilemiyorsak
+
+func hepsiniTopla(sayilar ...int) int {
+	toplam := 0
+	for i := range sayilar {
+		toplam += sayilar[i]
+
+	}
+	return toplam
+
+}
 
 ---------------------------------------------------------------------------
 
----------------------------------------------------------------------------
 
----------------------------------------------------------------------------
