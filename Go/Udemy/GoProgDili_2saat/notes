@@ -421,8 +421,45 @@ func main() {
 ---------------------------------------------------------------------------
 ders13.go
 
+package main
+
+// parametre almayan fonksiyonlar
+
+import "fmt"
+
+func main() {
+	fmt.Println("Merhaba ...............")
+	kimlikSor()
+	fmt.Println("Güle Güle ...............")
+	kimlikSor()
+}
+
+//yeni fonksiyonu main dışında yazıyoruz
+
+func kimlikSor() {
+
+	fmt.Println("İsminiz:")
+	var isim string
+	fmt.Scanln(&isim)
+
+	fmt.Println("Yaşınız:")
+	var yas int
+	fmt.Scanln(&yas)
+
+	if yas <= 18 {
+		fark := 18 - yas
+		fmt.Printf("Üzgünüz %s yaşın 18den küçük olduğu için alamıyoruz. %d sene sonra bekleriz", isim, fark)
+
+	} else {
+		fmt.Printf("Hoşgeldin %s iyi eğlenceler", isim)
+	}
+
+}
 
 ---------------------------------------------------------------------------
+ders14.go
+Parametre alan fonksiyonlar
+
 
 ---------------------------------------------------------------------------
 
