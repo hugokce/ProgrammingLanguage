@@ -237,8 +237,54 @@ func main() {
 ---------------------------------------------------------------------------
 ders9.go
 
+package main
+
+//sayi tahmin oyunu
+
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+func main() {
+
+	min, max := 1, 100
+	rand.Seed(time.Now().UnixNano())
+	sayi := rand.Intn(max - min)
+	//10 deneme hakkımız olsun
+	var hak int = 10
+	//for döngüsü ekleyelim 10 kere max dönsün
+	//goda while yoktur foru while gibi yapalım
+	for hak > 0 {
+
+		fmt.Println("1 ile 100 arasında bir sayı tuttum.Tahmin ediniz: ")
+		var tahmin int
+		fmt.Scanln(&tahmin)
+
+		if tahmin > sayi {
+			fmt.Println("Aşağı inin")
+			hak--
+			if hak == 0 {
+				fmt.Println("Haklarınız bitti")
+			}
+		} else if tahmin < sayi {
+			fmt.Println("Yukarı çıkın")
+			hak--
+			if hak == 0 {
+				fmt.Println("Haklarınız bitti")
+			}
+		} else {
+			fmt.Println("Bildiniz...")
+			break
+
+		}
+	}
+}
 
 ---------------------------------------------------------------------------
+ders10.go
+
 
 ---------------------------------------------------------------------------
 
