@@ -194,10 +194,29 @@ func main() {
 ---------------------------------------------------------------------------
 ders7.go
 
+package main
 
+import "fmt"
 
+func main() {
+
+	fmt.Println("Lütfen isim giriniz: ")
+	var isim string
+	fmt.Scanln(&isim)
+	fmt.Println("Girdiğiniz isim: ", isim)
+
+	///////////sayi degeri girilsin////////
+
+	fmt.Println("Lütfen sayı giriniz: ")
+	var sayi int
+	fmt.Scanln(&sayi)
+	fmt.Println("Girdiğiniz sayının karesi: ", sayi*sayi)
+}
+//Go'da convertion işlemine gerek kalmadı
 
 ---------------------------------------------------------------------------
+ders8.go
+
 
 ---------------------------------------------------------------------------
 
